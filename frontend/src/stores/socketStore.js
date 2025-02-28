@@ -1,10 +1,13 @@
-import  create  from "zustand";
+import create from "zustand";
 import toast from "react-hot-toast";
 import { io } from "socket.io-client";
 import { authStore } from "./authStore";
 import { messageStore } from "./messageStore";
 import notify from "../assets/sounds/notify.mp3";
-const { VITE_SOCKET_URL } = import.meta.env;
+const { VITE_SOCKET_DEV, VITE_PROD_URL } = import.meta.env;
+
+const SOCKET_SERVER_URI =
+  import.meta.env.MODE === "development" ? VITE_SOCKET_DEV : VITE_PROD_URL;
 
 export const useSocket = create((set, get) => ({
   socket: null,
@@ -12,7 +15,7 @@ export const useSocket = create((set, get) => ({
 
   connectToSocketServer: () => {
     const { user } = authStore.getState();
-    const socket = io(VITE_SOCKET_URL, {
+    const socket = io(SOCKET_SERVER_URI, {
       query: {
         userId: user?.id,
       },

@@ -8,10 +8,12 @@ import {
 
 const { VITE_BACKEND_URL } = import.meta.env;
 const { VITE_LOGIN_URL } = import.meta.env;
+const { VITE_PROD_URL } = import.meta.env;
 
 // Create AxiosnInstance.
 export const axiosInstance = axios.create({
-  baseURL: import.meta.env.MODE === "development" ? VITE_BACKEND_URL : "/api",
+  baseURL:
+    import.meta.env.MODE === "development" ? VITE_BACKEND_URL : VITE_PROD_URL,
 });
 
 // Request interceptor:: Attach access token to authorization headers.

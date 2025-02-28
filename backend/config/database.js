@@ -1,11 +1,6 @@
 const mongoose = require("mongoose");
-
-const MONGO_URI =
-  process.env.NODE_ENV === "development"
-    ? process.env.MONGO_URI_DEV
-    : process.env.MONGO_URI_PROD;
-
-console.log(MONGO_URI);
+const { MONGO_URI_PROD, MONGO_URI_DEV, NODE_ENV } = process.env;
+const MONGO_URI = NODE_ENV === "development" ? MONGO_URI_DEV : MONGO_URI_PROD;
 
 const connnectToMongoDb = async () => {
   try {
