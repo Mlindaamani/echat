@@ -47,8 +47,12 @@ export const EchatLandingPage = () => {
                     </a>
                   </li>
 
-                  <li className="nav-item" onClick={() => logout(navigate)}>
-                    <a className="nav-link" href="#">
+                  <li className="nav-item">
+                    <a
+                      className="nav-link"
+                      href="#"
+                      onClick={() => logout(navigate)}
+                    >
                       Logout
                     </a>
                   </li>
@@ -79,10 +83,10 @@ export const EchatLandingPage = () => {
           Experience seamless real-time communication with eChat.
         </p>
         <div className="mt-4">
-          <a href="#" className="btn btn-light btn-lg me-3">
+          <a href="/" className="btn btn-light btn-lg me-3">
             Get Started
           </a>
-          <a href="#" className="btn btn-outline-light btn-lg">
+          <a href="/" className="btn btn-outline-light btn-lg">
             Learn More
           </a>
         </div>

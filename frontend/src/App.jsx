@@ -1,9 +1,9 @@
 import "./App.css";
-import { EchatLandingPage } from "./components/LandingPage";
 import { RealTimeChat } from "./chats/RealTimeChat";
 import { Routes, Route } from "react-router-dom";
 import { RegistrationForm } from "./pages/RegistrationForm";
 import { LoginForm } from "./pages/LoginForm";
+import { EchatLandingPage } from "./pages/LandingPage";
 
 export const App = () => {
   return (

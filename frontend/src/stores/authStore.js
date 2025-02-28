@@ -90,6 +90,6 @@ export const authStore = create(
       },
     }),
 
-    { name: "auth-storage", storage: () => localStorage }
+    { name: "auth-storage", getStorage: () => localStorage }
   )
 );
