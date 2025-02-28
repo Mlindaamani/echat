@@ -19,12 +19,12 @@ app.use("/api/users", userRouter);
 app.use("/api/messages", messageRouter);
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(___dirname, "frontend/dist")));
-
-  app.get("*", (_req, res) => {
-    res.sendFile(path.join(___dirname, "frontend", "dist", "index.html"));
-  });
+  app.use(express.static(path.join(___dirname, "../frontend/dist")));
 }
+
+app.get("*", (_req, res) => {
+  res.sendFile(path.join(___dirname, "../frontend", "dist", "index.html"));
+});
 
 server.listen(process.env.PORT, async () => {
   startServer();
