@@ -6,9 +6,7 @@ import {
   removeTokens,
 } from "../utils/localStorage";
 
-const { VITE_BACKEND_URL } = import.meta.env;
-const { VITE_LOGIN_URL } = import.meta.env;
-const { VITE_PROD_URL } = import.meta.env;
+const { VITE_BACKEND_URL, VITE_LOGIN_URL, VITE_PROD_URL } = import.meta.env;
 
 // Create AxiosnInstance.
 export const axiosInstance = axios.create({
