@@ -8,36 +8,29 @@ const sendMessage = async (req, res) => {
     const { id: senderId } = req.user;
     const { message } = req.body;
 
-    // Find the existing conversation
     let conversation = await Conversation.findOne({
       participants: { $all: [receiverId, senderId] },
     });
 
-    // If no conversation exists, create a new one
     if (!conversation) {
       conversation = await Conversation.create({
         participants: [senderId, receiverId],
       });
     }
 
-    // Create the new message
     const newMessage = await Message.create({
       receiverId,
       senderId,
       message,
     });
 
-    // Push the new message ID to the conversation's messages array
     conversation.messages.push(newMessage._id);
 
-    //Sending the message via socketIo server
     const receiverSocketId = getReceiverSocketId(receiverId);
     if (receiverSocketId) {
-      //send new message to the receiver
       io.to(receiverSocketId).emit("new-message", newMessage);
     }
 
-    // Save the updated conversation
     await conversation.save();
     res.status(201).json(newMessage);
   } catch (error) {
