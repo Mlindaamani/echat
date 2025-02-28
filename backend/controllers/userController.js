@@ -1,15 +1,6 @@
 const { User } = require("../models/User");
-
 const { v2 } = require("../config/cloudinary");
-/**
- * @typedef {import('express').Request} Request
- * @typedef {import('express').Response} Responsev
- */
 
-/**
- * @param {Request} req
- * @param {Response} res
- */
 const getSidebarUsers = async (req, res) => {
   const { id: userId } = req.user;
   try {
@@ -25,11 +16,6 @@ const getSidebarUsers = async (req, res) => {
     });
   }
 };
-
-/**
- * @param {Request} req
- * @param {Response} res
- */
 
 const updateProfile = async (req, res) => {
   const { profilePicture } = req.body;

@@ -6,15 +6,6 @@ const {
   generateRefreshToken,
 } = require("../utils/functions");
 
-/**
- * @typedef {import('express').Request} Request
- * @typedef {import('express').Response} Responsev
- */
-
-/**
- * @param {Request} req
- * @param {Response} res
- */
 const register = async (req, res) => {
   const { username, email, password, role } = req.body;
 
@@ -43,14 +34,8 @@ const register = async (req, res) => {
   }
 };
 
-/**
- * @param {Request} req
- * @param {Response} res
- */
 const login = async (req, res) => {
   const { email, password } = req.body;
-
-
 
   try {
     const user = await User.findOne({ email });
@@ -87,10 +72,6 @@ const login = async (req, res) => {
   }
 };
 
-/**
- * @param {Request} req
- * @param {Response} res
- */
 const refreshToken = (req, res) => {
   const { refreshToken } = req.body;
 
@@ -118,10 +99,6 @@ const refreshToken = (req, res) => {
   });
 };
 
-/**
- * @param {Request} req
- * @param {Response} res
- */
 const checkAuth = (req, res) => {
   try {
     return res.status(200).json({ user: req.user });
