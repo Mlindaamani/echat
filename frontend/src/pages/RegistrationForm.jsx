@@ -3,6 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import { authStore } from "../stores/authStore";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 export const RegistrationForm = () => {
   const [email, setEmail] = useState("");
@@ -79,6 +80,7 @@ export const RegistrationForm = () => {
           </div>
         </Form>
       </div>
+      <Toaster />
     </div>
   );
 };

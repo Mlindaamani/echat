@@ -3,6 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import { authStore } from "../stores/authStore";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 export const LoginForm = () => {
   const navigate = useNavigate();
@@ -67,6 +68,7 @@ export const LoginForm = () => {
           </div>
         </Form>
       </div>
+      <Toaster />
     </div>
   );
 };
