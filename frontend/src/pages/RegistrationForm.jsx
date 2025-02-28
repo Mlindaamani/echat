@@ -71,7 +71,7 @@ export const RegistrationForm = () => {
               Already have an account?
             </span>{" "}
             <Link
-              to={import.meta.env.VITE_LOGIN_URL}
+              to="/login"
               className="text-warning text-decoration-none fw-bold"
             >
               Login
