@@ -6,12 +6,15 @@ import {
   removeTokens,
 } from "../utils/localStorage";
 
-const { VITE_BACKEND_URL, VITE_LOGIN_URL, VITE_PROD_URL } = import.meta.env;
+const { VITE_BACKEND_URL_DEV, VITE_BACKEND_URL_PROD } =
+  import.meta.env;
 
 // Create AxiosnInstance.
 export const axiosInstance = axios.create({
   baseURL:
-    import.meta.env.MODE === "development" ? VITE_BACKEND_URL : VITE_PROD_URL,
+    import.meta.env.MODE === "development"
+      ? VITE_BACKEND_URL_DEV
+      : VITE_BACKEND_URL_PROD,
 });
 
 // Request interceptor:: Attach access token to authorization headers.
@@ -52,7 +55,7 @@ axiosInstance.interceptors.response.use(
         // Remove tokens
         removeTokens();
         // Redirect user to login page
-        window.location.href = VITE_LOGIN_URL;
+        window.location.href = "/login";
       }
     }
     return Promise.reject(error);

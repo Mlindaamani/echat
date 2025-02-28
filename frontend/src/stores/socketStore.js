@@ -5,10 +5,10 @@ import { authStore } from "./authStore";
 import { messageStore } from "./messageStore";
 import notify from "../assets/sounds/notify.mp3";
 
-const { VITE_SOCKET_DEV, VITE_PROD_URL } = import.meta.env;
+const { VITE_SOCKET_DEV, VITE_SOCKET_PROD } = import.meta.env;
 
-const SOCKET_SERVER_URI =
-  import.meta.env.MODE === "development" ? VITE_SOCKET_DEV : VITE_PROD_URL;
+const SOCKET_SERVER_URL =
+  import.meta.env.MODE === "development" ? VITE_SOCKET_DEV : VITE_SOCKET_PROD;
 
 export const useSocket = create((set, get) => ({
   socket: null,
@@ -16,7 +16,7 @@ export const useSocket = create((set, get) => ({
 
   connectToSocketServer: () => {
     const { user } = authStore.getState();
-    const socket = io(SOCKET_SERVER_URI, {
+    const socket = io(SOCKET_SERVER_URL, {
       query: {
         userId: user?.id,
       },

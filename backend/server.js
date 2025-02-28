@@ -6,7 +6,6 @@ const { connnectToMongoDb } = require("./config/database");
 const { startServer } = require("./utils/functions");
 const { server, app, express } = require("./socket");
 const { userRouter, authRouter, messageRouter } = require("./routes");
-
 const ___dirname = path.resolve();
 
 app.use(cors());
