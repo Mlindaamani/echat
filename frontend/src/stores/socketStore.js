@@ -4,10 +4,13 @@ import { io } from "socket.io-client";
 import { authStore } from "./authStore";
 import { messageStore } from "./messageStore";
 import notify from "../assets/sounds/notify.mp3";
+
 const { VITE_SOCKET_DEV, VITE_PROD_URL } = import.meta.env;
 
 const SOCKET_SERVER_URI =
   import.meta.env.MODE === "development" ? VITE_SOCKET_DEV : VITE_PROD_URL;
+
+console.log(VITE_SOCKET_DEV);
 
 export const useSocket = create((set, get) => ({
   socket: null,
