@@ -11,7 +11,7 @@ const { VITE_LOGIN_URL } = import.meta.env;
 
 // Create AxiosnInstance.
 export const axiosInstance = axios.create({
-  baseURL: VITE_BACKEND_URL,
+  baseURL: import.meta.env.MODE === "development" ? VITE_BACKEND_URL : "/api",
 });
 
 // Request interceptor:: Attach access token to authorization headers.
@@ -41,7 +41,7 @@ axiosInstance.interceptors.response.use(
         const refreshToken = getRefreshToken();
         const { accessToken } = (
           await axiosInstance.post("/auth/refresh-token", {
-            refreshToken, 
+            refreshToken,
           })
         ).data;
         storeTokens(accessToken, refreshToken);
@@ -58,7 +58,3 @@ axiosInstance.interceptors.response.use(
     return Promise.reject(error);
   }
 );
-
-
-
-

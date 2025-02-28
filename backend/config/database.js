@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const connnectToMongoDb = async () => {
   try {
-    const conn = await mongoose.connect(process.env.MONGO_URI);
+    const conn = await mongoose.connect(process.env.MONGO_URI_DEV);
     console.log(
       `✔️  Success! Mongodb is running on port: ${conn.connection.port}`
     );
