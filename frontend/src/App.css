@@ -96,3 +96,33 @@ html {
   padding: 10px;
   cursor: pointer;
 }
+
+.sidebar-toggle:hover {
+  background: #555;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 0);
+  }
+  25% {
+    transform: translate(-1px, 0);
+  }
+  50% {
+    transform: translate(1px, 0);
+  }
+  75% {
+    transform: translate(-1px, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.feature-icons {
+  display: inline-block;
+  animation: shake 0.5s infinite;
+  transition: transform 0.3s, color 0.3s;
+  color: #4f69db;
+  cursor: grab;
+}

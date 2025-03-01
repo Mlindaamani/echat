@@ -3,7 +3,7 @@ import { Image } from "react-bootstrap";
 import { Toaster } from "react-hot-toast";
 import toast from "react-hot-toast";
 import { NavLink } from "react-router-dom";
-import { formatDate } from "../utils/functions";
+import { calculateMemberSince, formatDate } from "../utils/functions";
 import { Loading } from "../components/Loading";
 import { useProfile } from "../stores/profileStore";
 import settings from "../assets/svg/settings.svg";
@@ -221,7 +221,7 @@ export const Profile = () => {
                       </label>
                       <input
                         type="text"
-                        value={formatDate(profile?.created_at)}
+                        value={calculateMemberSince(profile?.created_at)}
                         className="card-text form-control"
                         readOnly
                         disabled

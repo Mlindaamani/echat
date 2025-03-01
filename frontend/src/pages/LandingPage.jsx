@@ -109,17 +109,29 @@ export const EchatLandingPage = () => {
       <div className="container py-5" id="feature">
         <div className="row">
           <div className="col-md-4 text-center">
-            <Image src={chat} className="mb-3" style={{ width: "80px" }} />
+            <Image
+              src={chat}
+              className="mb-3 feature-icons"
+              style={{ width: "80px" }}
+            />
             <h3>Real-Time Messaging</h3>
             <p>Chat instantly with friends, family, or colleagues.</p>
           </div>
           <div className="col-md-4 text-center">
-            <Image src={secure} className="mb-3" style={{ width: "80px" }} />
+            <Image
+              src={secure}
+              className="mb-3 feature-icons"
+              style={{ width: "80px" }}
+            />
             <h3>Secure & Private</h3>
             <p>Your conversations are encrypted and safe.</p>
           </div>
-          <div className="col-md-4 text-center">
-            <Image src={socket} className="mb-3" style={{ width: "80px" }} />
+          <div className="col-md-4 text-center eature-icons">
+            <Image
+              src={socket}
+              className="mb-3 feature-icons"
+              style={{ width: "80px" }}
+            />
             <h3>Cross-Platform</h3>
             <p>Access eChat on any device, anywhere.</p>
           </div>
