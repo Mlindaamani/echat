@@ -31,18 +31,23 @@ const getProfile = async (req, res) => {
   }
 };
 
-const updateProfile = async (req, res) => {
+const uploadProfile = async (req, res) => {
   const { photo } = req.body;
   const { id: userId } = req.user;
+
   try {
-    if (!profilePicture) {
+    if (!photo) {
       return res.status(404).json({ message: "Profile picture is required" });
     }
-    //Upload profile picture to cloudinary bucket
-    const upload = await v2.uploader.upload(photo);
+
+    // Upload to Cloudinary
+    const uploadResult = await v2.uploader.upload(photo, {
+      folder: "user-profiles",
+      resource_type: "auto",
+    });
     const updatedUserProfile = await User.findByIdAndUpdate(
       userId,
-      { photo: upload.secure_url },
+      { photo: uploadResult.secure_url },
       { new: true }
     );
     return res.status(200).json(updatedUserProfile);
@@ -55,4 +60,4 @@ const updateProfile = async (req, res) => {
   }
 };
 
-module.exports = { getSidebarUsers, updateProfile, getProfile };
+module.exports = { getSidebarUsers, uploadProfile, getProfile };

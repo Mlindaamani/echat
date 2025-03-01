@@ -1,9 +1,9 @@
 import create from "zustand";
 import { axiosInstance } from "../config/axios";
 
-export const useProfile = create((set) => ({
+export const useProfile = create((set, get) => ({
   profile: null,
-  updatingProfile: false,
+  uploading: false,
   loadingProfile: false,
 
   getProfile: async () => {
@@ -18,16 +18,20 @@ export const useProfile = create((set) => ({
     }
   },
 
-  updateProfile: async (profile_data) => {
-    set({ updatingProfile: true });
+  uploadProfile: async (photo_base64) => {
+    set({ uploading: true });
     try {
-      const response = await axiosInstance.put("/users/profile", profile_data);
-      console.log(response.data);
-      set({ updatingProfile: false });
+      const response = await axiosInstance.post(
+        "/users/profile/upload",
+        photo_base64
+      );
+      // Refresh profile data after upload
+      get().getProfile();
+      set({ uploading: false });
     } catch (error) {
       console.log(error.message);
     } finally {
-      set({ updatingProfile: false });
+      set({ uploading: false });
     }
   },
 }));

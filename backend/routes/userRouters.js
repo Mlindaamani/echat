@@ -1,6 +1,7 @@
 const {
   getSidebarUsers,
   getProfile,
+  uploadProfile,
 } = require("../controllers/userController");
 
 const {
@@ -10,8 +11,13 @@ const {
 const express = require("express");
 const userRouter = express.Router();
 
+userRouter.get("/profile/me", userIsAuthenticatedMiddleware, getProfile);
 userRouter.get("/chat-users", userIsAuthenticatedMiddleware, getSidebarUsers);
 
-userRouter.get("/profile/me", userIsAuthenticatedMiddleware, getProfile);
+userRouter.post(
+  "/profile/upload",
+  userIsAuthenticatedMiddleware,
+  uploadProfile
+);
 
 module.exports = { userRouter };

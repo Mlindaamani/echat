@@ -50,3 +50,38 @@ html {
 .navbar-custom .navbar-toggler {
   border-color: rgba(255, 255, 255, 0.5);
 }
+
+.profile-sidebar {
+  width: 300px;
+  background-color: #f8f9fa;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  transition: width 0.3s;
+}
+
+.profile-sidebar.closed {
+  width: 75px;
+}
+
+.profile-sidebar nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.profile-sidebar nav ul li {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.profile-sidebar nav ul li a {
+  margin-left: 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 20px;
+}
