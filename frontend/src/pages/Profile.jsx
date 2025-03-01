@@ -17,13 +17,6 @@ import menuclose from "../assets/svg/menuclose.svg";
 import upload from "../assets/svg/upload.svg";
 
 export const Profile = () => {
-  const navStyle = {
-    color: "red",
-    fontSize: "16px",
-    fontWeight: 600,
-    fontFamily: "sans-serif",
-  };
-
   const [photo, setPhoto] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const { profile, loadingProfile, uploading, uploadProfile, getProfile } =
@@ -46,6 +39,8 @@ export const Profile = () => {
         const base64Photo = reader.result;
         toast.success("Uploading profile...");
         await uploadProfile({ photo: base64Photo });
+        // Clear the photo state after upload
+        setPhoto(null);
       };
     } catch (error) {
       toast.error("Upload failed");
@@ -73,22 +68,14 @@ export const Profile = () => {
           <ul>
             <li>
               <Image src={dashboard} />
-              <NavLink
-                to="/profile"
-                className="text-light fw-bold"
-                style={({ isActive }) => (isActive ? navStyle : null)}
-              >
+              <NavLink to="/profile" className="text-light fw-bold">
                 {sidebarOpen && "Dashboard"}
               </NavLink>
             </li>
 
             <li>
               <Image src={friends} />
-              <NavLink
-                to="/profile"
-                className="text-light fw-bold"
-                style={({ isActive }) => (isActive ? navStyle : null)}
-              >
+              <NavLink to="/profile" className="text-light fw-bold">
                 {sidebarOpen && "Friends"}
               </NavLink>
             </li>
@@ -96,22 +83,14 @@ export const Profile = () => {
             <li>
               <Image src={settings} />
 
-              <NavLink
-                to="/profile"
-                className="text-light fw-bold"
-                style={({ isActive }) => (isActive ? navStyle : null)}
-              >
+              <NavLink to="/profile" className="text-light fw-bold">
                 {sidebarOpen && "Settings"}
               </NavLink>
             </li>
 
             <li>
               <Image src={logout} />
-              <NavLink
-                to="/"
-                className="text-light fw-bold"
-                style={({ isActive }) => (isActive ? navStyle : null)}
-              >
+              <NavLink to="/" className="text-light fw-bold">
                 {sidebarOpen && "Logout"}
               </NavLink>
             </li>
@@ -148,9 +127,20 @@ export const Profile = () => {
                         type="file"
                         id="customFile"
                         className="visually-hidden"
-                        onChange={(e) => setPhoto(e.target.files[0])}
+                        onChange={(e) => {
+                          const file = e.target.files[0];
+                          if (!file.type.startsWith("image/")) {
+                            toast.error("Please upload an image file");
+                            return;
+                          }
+                          // 2MB limit
+                          if (file.size > 2 * 1024 * 1024) {
+                            toast.error("File size must be less than 2MB");
+                            return;
+                          }
+                          setPhoto(file);
+                        }}
                       />
-
                       <label
                         htmlFor="customFile"
                         className="btn btn-success d-flex align-items-center gap-2 w-100"
@@ -158,7 +148,6 @@ export const Profile = () => {
                         <Image src={upload} />
                         Choose File
                       </label>
-
                       {photo && (
                         <div className="mt-2 text-muted small">
                           {photo.name}
