@@ -25,6 +25,10 @@ html {
   flex-grow: 1;
 }
 
+.auth-bg {
+  background: linear-gradient(2rad, #4f69db, #ffffff);
+}
+
 .chat-app {
   background: linear-gradient(135deg, #4f69db, #5e3487);
   min-height: 100vh;

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Image } from "react-bootstrap";
 import { authStore } from "../stores/authStore";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
+import chats from "../assets/svg/chats.svg";
 
 export const LoginForm = () => {
   const navigate = useNavigate();
@@ -19,11 +20,12 @@ export const LoginForm = () => {
             e.preventDefault();
             login(email, password, navigate);
           }}
-          className="mt-5 bg-success p-5 rounded-5 "
+          className="mt-5 bg-success p-5 rounded-4 w-25 col-sm-12"
         >
-          <h5 className="text-center mb-3 p-3 text-white fs-4 fw-bold">
-            Login
-          </h5>
+          <div className="container d-flex justify-content-center align-items-center gap-4 mb-5">
+            <Image width={50} height={50} src={chats} />
+            <h5 className="text-center text-white fw-bold fs-4">LOGIN NOW</h5>
+          </div>
           <Form.Group className="mb-4">
             <Form.Label className="fs-5 fw-medium text-light">Email</Form.Label>
             <Form.Control

@@ -1,6 +1,11 @@
+import { useNavigate, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Image } from "react-bootstrap";
 import { authStore } from "../stores/authStore";
-import { useNavigate } from "react-router-dom";
+import sound from "../assets/svg/sound.svg";
+import chat from "../assets/svg/chat.svg";
+import secure from "../assets/svg/secure.svg";
+import socket from "../assets/svg/socket.svg";
 
 export const EchatLandingPage = () => {
   const { isAuthenticated, logout } = authStore();
@@ -11,9 +16,13 @@ export const EchatLandingPage = () => {
       {/* Navigation Bar */}
       <nav className="navbar navbar-expand-lg navbar-dark navbar-custom p-4">
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">
+          <Link
+            className="navbar-brand d-flex gap-2 justify-content-center align-items-center"
+            to="/"
+          >
+            <Image src={sound} />
             eChat
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -29,51 +38,49 @@ export const EchatLandingPage = () => {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Features
-                </a>
+                <Link className="nav-link">Features</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link className="nav-link" to="/">
                   Pricing
-                </a>
+                </Link>
               </li>
 
               {isAuthenticated ? (
                 <>
                   <li className="nav-item">
-                    <a className="nav-link" href="/chat">
+                    <Link className="nav-link" to="/chat">
                       Chat
-                    </a>
+                    </Link>
                   </li>
 
                   <li className="nav-item">
-                    <a className="nav-link" href="/profile">
+                    <Link className="nav-link" to="/profile">
                       Profile
-                    </a>
+                    </Link>
                   </li>
 
                   <li className="nav-item">
-                    <a
+                    <Link
                       className="nav-link"
-                      href="#"
+                      to="#"
                       onClick={() => logout(navigate)}
                     >
                       Logout
-                    </a>
+                    </Link>
                   </li>
                 </>
               ) : (
                 <>
                   <li className="nav-item">
-                    <a className="nav-link" href="/login">
+                    <Link className="nav-link" to="/login">
                       Login
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="/register">
+                    <Link className="nav-link" to="/register">
                       Register
-                    </a>
+                    </Link>
                   </li>
                 </>
               )}
@@ -88,28 +95,31 @@ export const EchatLandingPage = () => {
         <p className="lead">
           Experience seamless real-time communication with eChat.
         </p>
-        <div className="mt-4">
-          <a href="/" className="btn btn-light btn-lg me-3">
+        <div className="mt-5">
+          <Link to="/" className="btn btn-light btn-lg me-3">
             Get Started
-          </a>
-          <a href="/" className="btn btn-outline-light btn-lg">
+          </Link>
+          <Link to="/" className="btn btn-outline-light btn-lg">
             Learn More
-          </a>
+          </Link>
         </div>
       </div>
 
       {/* Features Section */}
-      <div className="container py-5">
+      <div className="container py-5" id="feature">
         <div className="row">
           <div className="col-md-4 text-center">
+            <Image src={chat} className="mb-3" style={{ width: "80px" }} />
             <h3>Real-Time Messaging</h3>
             <p>Chat instantly with friends, family, or colleagues.</p>
           </div>
           <div className="col-md-4 text-center">
+            <Image src={secure} className="mb-3" style={{ width: "80px" }} />
             <h3>Secure & Private</h3>
             <p>Your conversations are encrypted and safe.</p>
           </div>
           <div className="col-md-4 text-center">
+            <Image src={socket} className="mb-3" style={{ width: "80px" }} />
             <h3>Cross-Platform</h3>
             <p>Access eChat on any device, anywhere.</p>
           </div>

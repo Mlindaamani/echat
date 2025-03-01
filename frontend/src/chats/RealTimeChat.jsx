@@ -5,6 +5,7 @@ import { authStore } from "../stores/authStore";
 import { messageStore } from "../stores/messageStore";
 import { useSocket } from "../stores/socketStore";
 import { formatDate } from "../utils/functions";
+import { Link } from "react-router-dom";
 
 export const RealTimeChat = () => {
   const lastMessageRef = useRef();
@@ -58,6 +59,9 @@ export const RealTimeChat = () => {
           {selectedUser?.username ?? "Select to chat"}
         </h5>
         <p className="text-secondary fw-bold">Welcome, {user?.username}</p>
+        <Link to="/" className="text-warning text-decoration-none fw-bold">
+          Home
+        </Link>
       </div>
       <div className="chat-layout p-4 mb-3 bg-primary rounded-2">
         <div className="sidebar bg-warning text-light vh-100 p-3">
