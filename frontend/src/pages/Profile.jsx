@@ -12,8 +12,8 @@ import sound from "../assets/svg/sound.svg";
 import account from "../assets/svg/account.svg";
 import dashboard from "../assets/svg/dashboard.svg";
 import friends from "../assets/svg/friends.svg";
-import menuopen from "../assets/svg/menuopen.svg";
-import menuclose from "../assets/svg/menuclose.svg";
+import left from "../assets/svg/left.svg";
+import right from "../assets/svg/right.svg";
 import upload from "../assets/svg/upload.svg";
 
 export const Profile = () => {
@@ -24,7 +24,7 @@ export const Profile = () => {
 
   useEffect(() => {
     getProfile();
-  }, [getProfile]);
+  }, []);
 
   const handleUploadProfile = async () => {
     try {
@@ -39,7 +39,6 @@ export const Profile = () => {
         const base64Photo = reader.result;
         toast.success("Uploading profile...");
         await uploadProfile({ photo: base64Photo });
-        // Clear the photo state after upload
         setPhoto(null);
       };
     } catch (error) {
@@ -101,12 +100,24 @@ export const Profile = () => {
       {/* CONTENT-AREA */}
       <div className="content flex-grow-1">
         <div className="container mt-5 mb-3 vh-100">
-          <button
-            onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="btn btn-secondary btn-sm mb-5 mt-0 rounded-2"
-          >
-            {sidebarOpen ? <Image src={menuopen} /> : <Image src={menuclose} />}
-          </button>
+          {sidebarOpen ? (
+            <Image
+              src={left}
+              width={40}
+              height={40}
+              onClick={() => setSidebarOpen(!sidebarOpen)}
+              className="bg-success rounded-5 p-2"
+            />
+          ) : (
+            <Image
+              src={right}
+              width={40}
+              height={40}
+              onClick={() => setSidebarOpen(!sidebarOpen)}
+              className="bg-success rounded-5 p-2"
+            />
+          )}
+
           <div className="container">
             <div className="row justify-content-center align-items-center">
               <div className="col">
