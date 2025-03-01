@@ -48,6 +48,12 @@ export const EchatLandingPage = () => {
                   </li>
 
                   <li className="nav-item">
+                    <a className="nav-link" href="/profile">
+                      Profile
+                    </a>
+                  </li>
+
+                  <li className="nav-item">
                     <a
                       className="nav-link"
                       href="#"

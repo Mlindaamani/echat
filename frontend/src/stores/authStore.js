@@ -82,6 +82,11 @@ export const authStore = create(
         }
       },
 
+      profile: async ()=> {
+        
+
+      },
+
       logout: (navigate) => {
         removeTokens();
         set({ isAuthenticated: false, user: null });

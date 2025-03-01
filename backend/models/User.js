@@ -29,18 +29,7 @@ const userSchema = Schema(
       trim: true,
     },
 
-    role: {
-      type: String,
-      enum: ["creator", "user", "developer"],
-      default: "user",
-    },
-
-    hasPaid: {
-      type: Boolean,
-      default: false,
-    },
-
-    profile: {
+    photo: {
       type: String,
       default: "",
     },

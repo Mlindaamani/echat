@@ -17,18 +17,32 @@ const getSidebarUsers = async (req, res) => {
   }
 };
 
+const getProfile = async (req, res) => {
+  const { id: userId } = req.user;
+  try {
+    const profile = await User.findById(userId).select(
+      "-password -__v -updated_at"
+    );
+    if (!profile) return res.status(404).json({ message: "Profile not found" });
+    return res.status(200).json(profile);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
 const updateProfile = async (req, res) => {
-  const { profilePicture } = req.body;
+  const { photo } = req.body;
   const { id: userId } = req.user;
   try {
     if (!profilePicture) {
       return res.status(404).json({ message: "Profile picture is required" });
     }
     //Upload profile picture to cloudinary bucket
-    const upload = await v2.uploader.upload(profilePicture);
+    const upload = await v2.uploader.upload(photo);
     const updatedUserProfile = await User.findByIdAndUpdate(
       userId,
-      { profile: upload.secure_url },
+      { photo: upload.secure_url },
       { new: true }
     );
     return res.status(200).json(updatedUserProfile);
@@ -41,4 +55,4 @@ const updateProfile = async (req, res) => {
   }
 };
 
-module.exports = { getSidebarUsers, updateProfile };
+module.exports = { getSidebarUsers, updateProfile, getProfile };
