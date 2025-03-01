@@ -98,15 +98,15 @@ export const Profile = () => {
       </div>
 
       {/* CONTENT-AREA */}
-      <div className="content flex-grow-1">
-        <div className="container mt-5 mb-3 vh-100">
+      <div className="content flex-grow-1 ">
+        <div className="container mt-5 mb-3 vh-100 position-relative">
           {sidebarOpen ? (
             <Image
               src={left}
               width={40}
               height={40}
               onClick={() => setSidebarOpen(!sidebarOpen)}
-              className="bg-success rounded-5 p-2"
+              className="bg-success rounded-5 p-2 start-0 sidebar-toggle"
             />
           ) : (
             <Image
@@ -114,7 +114,7 @@ export const Profile = () => {
               width={40}
               height={40}
               onClick={() => setSidebarOpen(!sidebarOpen)}
-              className="bg-success rounded-5 p-2"
+              className="bg-success rounded-5 p-2  start-0 sidebar-toggle"
             />
           )}
 

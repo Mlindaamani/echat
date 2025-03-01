@@ -85,3 +85,14 @@ html {
   flex-grow: 1;
   padding: 20px;
 }
+
+.sidebar-toggle {
+  position: absolute;
+  top: 12px;
+  right: 0;
+  transform: translateY(-50%);
+  background: #333;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+}
