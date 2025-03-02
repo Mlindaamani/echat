@@ -4,7 +4,6 @@ import analy from "../../assets/svg/analy.svg";
 import settings from "../../assets/svg/settings.svg";
 import home from "../../assets/svg/home.svg";
 import balance from "../../assets/svg/balance.svg";
-import logout from "../../assets/svg/logout.svg";
 import { Brand } from "../../components/Brand";
 
 const Sidebar = () => (

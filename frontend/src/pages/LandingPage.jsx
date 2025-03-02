@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-// import "bootstrap/dist/css/bootstrap.min.css";
 import { Image } from "react-bootstrap";
 import chat from "../assets/svg/chat.svg";
 import secure from "../assets/svg/secure.svg";

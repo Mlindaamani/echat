@@ -25,7 +25,6 @@ export const App = () => {
       </Route>
 
       <Route element={<AuthRequired />}>
-        <Route path="/chat" element={<RealTimeChat />} />
         <Route element={<DashboardLayout />}>
           <Route path="/analytics" element={<Analytics />} />
           <Route path="/settings" element={<Profile />} />
