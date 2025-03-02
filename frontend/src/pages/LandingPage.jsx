@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import { Image } from "react-bootstrap";
 import chat from "../assets/svg/chat.svg";
 import secure from "../assets/svg/secure.svg";
 import socket from "../assets/svg/socket.svg";
 
-export const EchatLandingPage = () => {
+export const LandingPage = () => {
   return (
     <div className="d-flex flex-column min-vh-100 bg-light chat-app">
       {/* Hero Section */}

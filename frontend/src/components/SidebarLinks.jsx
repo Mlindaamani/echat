@@ -1,11 +1,9 @@
 import { NavLink, useLocation } from "react-router-dom";
+import { Image } from "react-bootstrap";
 
 export const SidebarLink = ({ to, icon, text }) => {
   const location = useLocation();
-  //Check if current route matches
-  //const isActive = location.pathname.startsWith(to);
 
-  //Handle nested routes
   const isActive =
     location.pathname === to || location.pathname.startsWith(`${to}/`);
 
@@ -13,11 +11,11 @@ export const SidebarLink = ({ to, icon, text }) => {
     <NavLink
       to={to}
       end
-      className={`btn btn-outline-light text-start w-100 ${
+      className={`text-decoration-none text-start w-100 text-light mb-2 fw-bold p-2 ${
         isActive ? "active" : ""
       }`}
     >
-      <i className={`bi ${icon} me-2`}></i>
+      <Image className="me-2" src={icon} />
       {text}
     </NavLink>
   );

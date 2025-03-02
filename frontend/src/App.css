@@ -99,3 +99,10 @@ html {
   height: 100vh; 
   overflow-y: auto; 
 }
+
+.active {
+  background: #4f69db;
+  color: #fff;
+  border-radius: 4px;
+
+}

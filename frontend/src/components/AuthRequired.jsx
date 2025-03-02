@@ -12,43 +12,5 @@ export const AuthRequired = () => {
   );
 };
 
-
 // Response design
-  /* <div className="col-12 col-md-8 col-lg-6 col-xl-5"></div> */
-
-
-
-
-
-//....
-// components/Sidebar.jsx
-// import { SidebarLink } from './SidebarLink';
-
-// const Sidebar = () => {
-//   return (
-//     <div className="p-3">
-//       <div className="d-flex flex-column gap-2">
-//         <h4 className="text-white mb-3">Navigation</h4>
-
-//         <SidebarLink
-//           to="/dashboard"
-//           icon="bi-person"
-//           text="Profile"
-//         />
-
-//         <SidebarLink
-//           to="/chat"
-//           icon="bi-chat"
-//           text="Chat"
-//         />
-
-//         {/* Add more links as needed */}
-//       </div>
-//     </div>
-//   );
-// };
-
-
-
-
-
+/* <div className="col-12 col-md-8 col-lg-6 col-xl-5"></div> */
