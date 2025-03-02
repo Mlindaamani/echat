@@ -18,14 +18,18 @@ export const useProfile = create((set, get) => ({
     }
   },
 
-  uploadProfile: async (photo_base64) => {
+  uploadProfile: async (photo) => {
     set({ uploading: true });
     try {
       const response = await axiosInstance.post(
         "/users/profile/upload",
-        photo_base64
+        photo,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
       );
-      // Refresh profile data after upload
       get().getProfile();
       set({ uploading: false });
     } catch (error) {

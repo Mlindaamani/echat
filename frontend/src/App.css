@@ -87,8 +87,8 @@ html {
 }
 
 .sidebar-toggle {
-  position: absolute;
-  top: 12px;
+  position: sticky;
+  top: 30px;
   right: 0;
   transform: translateY(-50%);
   background: #333;

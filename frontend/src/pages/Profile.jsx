@@ -3,7 +3,7 @@ import { Image } from "react-bootstrap";
 import { Toaster } from "react-hot-toast";
 import toast from "react-hot-toast";
 import { NavLink } from "react-router-dom";
-import { calculateMemberSince, formatDate } from "../utils/functions";
+import { calculateMemberSince } from "../utils/functions";
 import { Loading } from "../components/Loading";
 import { useProfile } from "../stores/profileStore";
 import settings from "../assets/svg/settings.svg";
@@ -17,6 +17,7 @@ import right from "../assets/svg/right.svg";
 import upload from "../assets/svg/upload.svg";
 
 export const Profile = () => {
+  const MAX_FILE_SIZE = 200 * 1024;
   const [photo, setPhoto] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const { profile, loadingProfile, uploading, uploadProfile, getProfile } =
@@ -26,30 +27,21 @@ export const Profile = () => {
     getProfile();
   }, []);
 
-  const handleUploadProfile = async () => {
-    try {
-      if (!photo) {
-        toast.error("Please select a file first!");
-        return;
-      }
-      // Convert File to Base64
-      const reader = new FileReader();
-      reader.readAsDataURL(photo);
-      reader.onloadend = async () => {
-        const base64Photo = reader.result;
-        toast.success("Uploading profile...");
-        await uploadProfile({ photo: base64Photo });
-        setPhoto(null);
-      };
-    } catch (error) {
-      toast.error("Upload failed");
+  const handleUploadProfile = () => {
+    if (!photo) {
+      toast.error("Please select a file first!");
+      return;
     }
+    const formData = new FormData();
+    formData.append("photo", photo);
+    uploadProfile(formData);
+    setPhoto(null);
   };
 
   if (loadingProfile) return <Loading />;
 
   return (
-    <div className="d-flex bg-info">
+    <div className="d-flex bg-primary-subtle">
       <div
         className={`profile-sidebar ${
           sidebarOpen ? "open" : "closed"
@@ -144,9 +136,14 @@ export const Profile = () => {
                             toast.error("Please upload an image file");
                             return;
                           }
-                          // 2MB limit
-                          if (file.size > 2 * 1024 * 1024) {
-                            toast.error("File size must be less than 2MB");
+                          // 1MB limit
+                          if (file.size > MAX_FILE_SIZE) {
+                            toast.error(
+                              `File size must be less than ${
+                                MAX_FILE_SIZE / 1024
+                              }KB`
+                            );
+                            setPhoto(null);
                             return;
                           }
                           setPhoto(file);
@@ -181,7 +178,7 @@ export const Profile = () => {
                 <div className="card rounded-4">
                   <div className="card-header">Personal info</div>
                   <div className="card-body">
-                    <div className="container d-flex justify-content-start align-items-center gap-4 mb-4">
+                    <div className="container d-flex justify-content-center align-items-center mb-4">
                       <Image
                         src={profile?.photo || account}
                         roundedCircle
@@ -189,7 +186,6 @@ export const Profile = () => {
                         height={100}
                         className="text-center"
                       />
-                      <p className="card-text fw-bold">{profile?.username}</p>
                     </div>
                     <div className="mb-3 mt-2">
                       <label htmlFor="" className="form-label">

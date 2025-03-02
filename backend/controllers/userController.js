@@ -32,16 +32,24 @@ const getProfile = async (req, res) => {
 };
 
 const uploadProfile = async (req, res) => {
-  const { photo } = req.body;
+  const MAX_FILE_SIZE = 200 * 1024;
+
   const { id: userId } = req.user;
+  const { mimetype, size, buffer } = req.file;
 
   try {
-    if (!photo) {
-      return res.status(404).json({ message: "Profile picture is required" });
+    if (size > MAX_FILE_SIZE) {
+      return res.status(400).json({
+        message: `File size should not exceed ${MAX_FILE_SIZE / 1024} KB`,
+      });
     }
 
-    // Upload to Cloudinary
-    const uploadResult = await v2.uploader.upload(photo, {
+    // Convert the file buffer to a base64 string
+    const base64Photo = buffer.toString("base64");
+    // Create a data URL
+    const imageData = `data:${mimetype};base64,${base64Photo}`;
+
+    const uploadResult = await v2.uploader.upload(imageData, {
       folder: "user-profiles",
       resource_type: "auto",
     });

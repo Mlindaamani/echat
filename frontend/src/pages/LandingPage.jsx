@@ -17,7 +17,7 @@ export const EchatLandingPage = () => {
       <nav className="navbar navbar-expand-lg navbar-dark navbar-custom p-4">
         <div className="container-fluid">
           <Link
-            className="navbar-brand d-flex gap-2 justify-content-center align-items-center"
+            className="navbar-brand d-flex gap-2 justify-content-center align-items-center fw-bold fs-4 text-light"
             to="/"
           >
             <Image src={sound} />
