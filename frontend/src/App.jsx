@@ -8,26 +8,36 @@ import { Profile } from "./pages/Profile";
 import { AuthRequired } from "./components/AuthRequired";
 import { AppLayout } from "./pages/layouts/AppLayout";
 import { AuthLayout } from "./pages/layouts/AuthLayout";
+import { DashboardLayout } from "./pages/layouts/DashboardLayout";
+import { Loading } from "./components/Loading";
 
 export const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<AppLayout />}>
-        <Route index element={<EchatLandingPage />} />
-        <Route element={<AuthRequired />}>
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/chat" element={<RealTimeChat />} />
-          <Route path="/profile" element={<Profile />} />
-        </Route>
-
-        {/* Auth routes */}
-        <Route element={<AuthLayout />}>
-          <Route path="/register" element={<RegistrationForm />} />
-          <Route path="/login" element={<LoginForm />} />
-        </Route>
-
-        <Route path="*" element={<h1>Page not found</h1>} />
+      <Route element={<AppLayout />}>
+        <Route path="/" element={<EchatLandingPage />} />
       </Route>
+
+      <Route element={<AuthLayout />}>
+        <Route path="/register" element={<RegistrationForm />} />
+        <Route path="/login" element={<LoginForm />} />
+      </Route>
+
+      <Route element={<AuthRequired />}>
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/chat" element={<RealTimeChat />} />
+
+        <Route element={<DashboardLayout />}>
+          <Route path="/dashboard" element={<RealTimeChat />} />
+          <Route
+            path="/account"
+            element={<h1 className="text-center">Realtime Saas App</h1>}
+          />
+          <Route path="/loading" element={<Loading />} />
+        </Route>
+      </Route>
+
+      <Route path="*" element={<h1>Page not found</h1>} />
     </Routes>
   );
 };

@@ -46,13 +46,14 @@ const uploadProfile = async (req, res) => {
 
     // Convert the file buffer to a base64 string
     const base64Photo = buffer.toString("base64");
-    // Create a data URL
+    // Create a data UR containing the URL encoded stringL
     const imageData = `data:${mimetype};base64,${base64Photo}`;
 
     const uploadResult = await v2.uploader.upload(imageData, {
       folder: "user-profiles",
       resource_type: "auto",
     });
+
     const updatedUserProfile = await User.findByIdAndUpdate(
       userId,
       { photo: uploadResult.secure_url },

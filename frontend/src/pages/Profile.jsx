@@ -4,7 +4,6 @@ import { Toaster } from "react-hot-toast";
 import toast from "react-hot-toast";
 import { NavLink } from "react-router-dom";
 import { calculateMemberSince } from "../utils/functions";
-import { Loading } from "../components/Loading";
 import { useProfile } from "../stores/profileStore";
 import settings from "../assets/svg/settings.svg";
 import logout from "../assets/svg/logout.svg";
@@ -20,8 +19,7 @@ export const Profile = () => {
   const MAX_FILE_SIZE = 200 * 1024;
   const [photo, setPhoto] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const { profile, loadingProfile, uploading, uploadProfile, getProfile } =
-    useProfile();
+  const { profile, uploading, uploadProfile, getProfile } = useProfile();
 
   useEffect(() => {
     getProfile();
@@ -38,10 +36,9 @@ export const Profile = () => {
     setPhoto(null);
   };
 
-  if (loadingProfile) return <Loading />;
-
   return (
-    <div className="d-flex bg-primary-subtle">
+    <div className="d-flex">
+      {/* Sidebar */}
       <div
         className={`profile-sidebar ${
           sidebarOpen ? "open" : "closed"
@@ -52,7 +49,7 @@ export const Profile = () => {
           to="/"
         >
           <Image src={sound} />
-          {sidebarOpen && "eChat"}
+          {sidebarOpen && profile?.username}
         </NavLink>
         <hr />
         <nav className="mt-2">
@@ -90,7 +87,7 @@ export const Profile = () => {
       </div>
 
       {/* CONTENT-AREA */}
-      <div className="content flex-grow-1 ">
+      <div className="flex-grow-1">
         <div className="container mt-5 mb-3 vh-100 position-relative">
           {sidebarOpen ? (
             <Image
@@ -220,7 +217,7 @@ export const Profile = () => {
                         value={calculateMemberSince(profile?.created_at)}
                         className="card-text form-control"
                         readOnly
-                        disabled
+                        disabled={uploading}
                       />
                     </div>
                   </div>

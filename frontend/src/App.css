@@ -3,52 +3,12 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  height: 100%;
-  display: flex;
-  place-items: center;
-  min-height: 100vh;
-}
-
-.d-flex {
-  display: flex;
-}
-
-.flex-column {
-  flex-direction: column;
-}
-
-.min-vh-100 {
-  min-height: 100vh;
-}
-
-.flex-grow-1 {
-  flex-grow: 1;
-}
-
-.auth-bg {
-  background: linear-gradient(2rad, #4f69db, #ffffff);
+  font-family: "Roboto", sans-serif;
+  color: #fff;
 }
 
 .chat-app {
   background: linear-gradient(135deg, #4f69db, #5e3487);
-  min-height: 100vh;
-  min-width: 100vw;
-  color: #fff;
-}
-
-.navbar-custom {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.navbar-custom .navbar-brand,
-.navbar-custom .nav-link {
-  color: white !important;
-}
-
-.navbar-custom .navbar-toggler {
-  border-color: rgba(255, 255, 255, 0.5);
 }
 
 .profile-sidebar {
@@ -57,16 +17,16 @@ html {
   position: sticky;
   top: 0;
   height: 100vh;
-  transition: width 0.3s;
+  transition: width 0.5s;
 }
 
 .profile-sidebar.closed {
-  width: 75px;
+  width: 100px;
 }
 
 .profile-sidebar nav ul {
   list-style: none;
-  padding: 0;
+  padding: 2px;
 }
 
 .profile-sidebar nav ul li {
@@ -79,11 +39,6 @@ html {
   margin-left: 10px;
   text-decoration: none;
   color: #333;
-}
-
-.content {
-  flex-grow: 1;
-  padding: 20px;
 }
 
 .sidebar-toggle {
@@ -125,4 +80,22 @@ html {
   transition: transform 0.3s, color 0.3s;
   color: #4f69db;
   cursor: grab;
+}
+
+/* custom sidebar */
+.sidebar-c {
+  height: 100vh; 
+  overflow-y: auto; 
+  position: sticky; 
+  top: 0; 
+}
+.profile-section {
+  position: sticky; 
+  bottom: 0; 
+  background: #f8f9fa; 
+  padding: 1rem; /
+}
+.content-c {
+  height: 100vh; 
+  overflow-y: auto; 
 }

@@ -4,17 +4,13 @@ import { axiosInstance } from "../config/axios";
 export const useProfile = create((set, get) => ({
   profile: null,
   uploading: false,
-  loadingProfile: false,
 
   getProfile: async () => {
-    set({ loadingProfile: true });
     try {
       const { data } = await axiosInstance.get("/users/profile/me");
-      set({ profile: data, loadingProfile: false });
+      set({ profile: data });
     } catch (error) {
       console.log(error.message);
-    } finally {
-      set({ loadingProfile: false });
     }
   },
 
@@ -31,6 +27,7 @@ export const useProfile = create((set, get) => ({
         }
       );
       get().getProfile();
+      console.log(response.data);
       set({ uploading: false });
     } catch (error) {
       console.log(error.message);
