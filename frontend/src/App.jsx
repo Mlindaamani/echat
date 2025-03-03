@@ -5,11 +5,11 @@ import { LoginForm } from "./pages/LoginForm";
 import { Settings } from "./pages/Settings";
 import { LandingPage } from "./pages/LandingPage";
 import { Analytics } from "./components/Analytics";
-import { Loading } from "./components/Loading";
 import { AuthRequired } from "./components/AuthRequired";
 import { AppLayout } from "./layouts/AppLayout";
 import { DashboardLayout } from "./layouts/DashboardLayout";
 import { AuthLayout } from "./layouts/AuthLayout";
+import { NotImplemented } from "./components/NotImplemented";
 
 export const App = () => {
   return (
@@ -27,7 +27,7 @@ export const App = () => {
         <Route element={<DashboardLayout />}>
           <Route path="/analytics" element={<Analytics />} />
           <Route path="/settings" element={<Settings />} />
-          <Route path="/balance" element={<Loading />} />
+          <Route path="/balance" element={<NotImplemented />} />
           <Route path="/room" element={<Room />} />
         </Route>
       </Route>

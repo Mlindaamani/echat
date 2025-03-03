@@ -1,6 +1,7 @@
 import React from "react";
 import { users } from "../utils/mock";
 import { roleBadgeColor } from "../utils/functions";
+
 export const Analytics = () => {
   return (
     <div>
@@ -117,6 +118,66 @@ export const Analytics = () => {
                     A second list item
                     <span className="badge text-bg-primary rounded-pill">
                       2
+                    </span>
+                  </li>
+                  <li className="list-group-item d-flex justify-content-between align-items-center">
+                    A third list item
+                    <span className="badge text-bg-primary rounded-pill">
+                      1
+                    </span>
+                  </li>
+                  <li className="list-group-item d-flex justify-content-between align-items-center">
+                    A third list item
+                    <span className="badge text-bg-primary rounded-pill">
+                      1
+                    </span>
+                  </li>
+                  <li className="list-group-item d-flex justify-content-between align-items-center">
+                    A third list item
+                    <span className="badge text-bg-primary rounded-pill">
+                      1
+                    </span>
+                  </li>
+                  <li className="list-group-item d-flex justify-content-between align-items-center">
+                    A third list item
+                    <span className="badge text-bg-primary rounded-pill">
+                      1
+                    </span>
+                  </li>
+                  <li className="list-group-item d-flex justify-content-between align-items-center">
+                    A third list item
+                    <span className="badge text-bg-primary rounded-pill">
+                      1
+                    </span>
+                  </li>
+                  <li className="list-group-item d-flex justify-content-between align-items-center">
+                    A third list item
+                    <span className="badge text-bg-primary rounded-pill">
+                      1
+                    </span>
+                  </li>
+                  <li className="list-group-item d-flex justify-content-between align-items-center">
+                    A third list item
+                    <span className="badge text-bg-primary rounded-pill">
+                      1
+                    </span>
+                  </li>
+                  <li className="list-group-item d-flex justify-content-between align-items-center">
+                    A third list item
+                    <span className="badge text-bg-primary rounded-pill">
+                      1
+                    </span>
+                  </li>
+                  <li className="list-group-item d-flex justify-content-between align-items-center">
+                    A third list item
+                    <span className="badge text-bg-primary rounded-pill">
+                      1
+                    </span>
+                  </li>
+                  <li className="list-group-item d-flex justify-content-between align-items-center">
+                    A third list item
+                    <span className="badge text-bg-primary rounded-pill">
+                      1
                     </span>
                   </li>
                   <li className="list-group-item d-flex justify-content-between align-items-center">

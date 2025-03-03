@@ -68,32 +68,7 @@ export const LandingPage = () => {
       {/* Pricing Section */}
       <div className="container py-5 mt-5">
         <h1 className="text-light text-center p-3 mt-2 mb-3">Pricing</h1>
-        <p className="lead fw-bold text-light">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ex
-          molestiae repudiandae sit rerum exercitationem alias nobis inventore
-          illo ea modi odit numquam dolore expedita, obcaecati voluptatibus
-          saepe maxime quod reprehenderit maiores odio! Rerum molestiae ipsum
-          nulla magni quia similique incidunt autem magnam, illum id maiores,
-          provident, dignissimos libero quaerat quod. Est magni porro unde
-          obcaecati deleniti velit eligendi voluptates dignissimos perferendis
-          architecto ut saepe molestias fugit odit, doloremque repudiandae
-          impedit aut molestiae. Fuga molestias eaque eveniet voluptatibus
-          exercitationem minus, consequuntur minima ab iste dolores voluptas,
-          reiciendis excepturi ullam sit, harum ea alias cum nulla. Blanditiis
-        </p>
-        <p className="lead fw-bold text-light mt-4">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, error
-          explicabo ea molestiae sunt at est aut dolorem consequuntur numquam!
-          Aperiam, debitis cupiditate delectus deserunt nam ratione nesciunt,
-          facere cumque hic omnis laudantium rem harum quia! Similique optio
-          reiciendis iste, at officiis sit incidunt et provident voluptatum
-          impedit. Dolorem, molestiae nemo, quo ratione quasi dolor excepturi
-          reiciendis officia, iusto deleniti quia maxime provident ea dolores
-          ipsam odio! Voluptate ipsam id quasi atque ex, tenetur fuga ratione
-          aliquid, doloribus autem quibusdam repellendus debitis sunt facilis
-          facere non quos molestiae odit nihil fugiat. Beatae perferendis ipsum
-          commodi officia velit obcaecati libero cupiditate.
-        </p>
+        <h5 className="text-center mt-5 mb-5 text-light mt-5">Coming Soon...</h5>
       </div>
     </div>
   );
