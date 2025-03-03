@@ -11,7 +11,7 @@ export const SidebarLink = ({ to, icon, text }) => {
     <NavLink
       to={to}
       end
-      className={`text-decoration-none text-start w-100 text-light mb-2 fw-bold p-2 ${
+      className={`text-decoration-none text-start w-100 text-light mb-2 fw-bold p-2 mt-1 ${
         isActive ? "active" : ""
       }`}
     >

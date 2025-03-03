@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form, Image } from "react-bootstrap";
-import { authStore } from "../stores/authStore";
+import { useAuthStore } from "../stores/authStore";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
@@ -10,7 +10,7 @@ export const LoginForm = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { loading, login } = authStore();
+  const { loading, login } = useAuthStore();
 
   return (
     <div>

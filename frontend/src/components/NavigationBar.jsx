@@ -1,11 +1,12 @@
 import { useNavigate, Link } from "react-router-dom";
 import { Image } from "react-bootstrap";
 import sound from "../assets/svg/sound.svg";
-import { authStore } from "../stores/authStore";
+import { useAuthStore } from "../stores/authStore";
 
 export const NavigationBar = () => {
-  const { isAuthenticated, logout } = authStore();
+  const { isAuthenticated, logout } = useAuthStore();
   const navigate = useNavigate();
+
   return (
     <nav
       className="navbar navbar-expand-lg navbar-dark p-4 chat-app"
@@ -37,7 +38,7 @@ export const NavigationBar = () => {
               <Link className="nav-link">Features</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/">
+              <Link className="nav-link" to="#price">
                 Pricing
               </Link>
             </li>
@@ -51,13 +52,14 @@ export const NavigationBar = () => {
                 </li>
 
                 <li className="nav-item">
-                  <Link
-                    className="nav-link"
-                    to="#"
-                    onClick={() => logout(navigate)}
+                  <button
+                    className="nav-link btn btn-link text-light"
+                    onClick={() => {
+                      logout(navigate);
+                    }}
                   >
                     Logout
-                  </Link>
+                  </button>
                 </li>
               </>
             ) : (

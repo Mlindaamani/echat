@@ -7,7 +7,7 @@ const {
 } = require("../utils/functions");
 
 const register = async (req, res) => {
-  const { username, email, password, role } = req.body;
+  const { username, email, password } = req.body;
 
   try {
     const existingUser = await User.findOne({ email });
@@ -17,7 +17,6 @@ const register = async (req, res) => {
     const user = await User.create({
       username,
       email,
-      role: role || "user",
       password: await bcryptjs.hash(password, 10),
     });
 
@@ -52,9 +51,7 @@ const login = async (req, res) => {
     const payload = {
       id: user._id,
       username: user.username,
-      role: user.role,
-      hasPaid: user.hasPaid,
-      profileUrl: user.profileUrl,
+      photo: user.photo,
     };
 
     const accessToken = generateAccessToken(payload);

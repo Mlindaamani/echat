@@ -12,7 +12,7 @@ import {
 import { getBackendErrorMessage } from "../utils/functions";
 const { connectToSocketServer } = useSocket.getState();
 
-export const authStore = create(
+export const useAuthStore = create(
   persist(
     (set) => ({
       user: null,
@@ -61,16 +61,15 @@ export const authStore = create(
           ).data;
 
           storeTokens(accessToken, refreshToken);
+          set({ isAuthenticated: true, loading: false, user: user });
+
           toast.success("You have successfully logged in.", {
             duration: 2000,
             position: "top-right",
             id: "login",
           });
-          set({ isAuthenticated: true, loading: false, user: user });
 
-          // Connect to SocketIo Server.
           connectToSocketServer();
-
           navigate("/");
         } catch (error) {
           set({ loading: false });
@@ -82,16 +81,11 @@ export const authStore = create(
         }
       },
 
-      profile: async ()=> {
-        
-
-      },
-
       logout: (navigate) => {
         removeTokens();
         set({ isAuthenticated: false, user: null });
         useSocket.getState().disconnect();
-        navigate("/");
+        navigate("/login");
       },
     }),
 

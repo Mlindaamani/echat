@@ -6,9 +6,9 @@ import socket from "../assets/svg/socket.svg";
 
 export const LandingPage = () => {
   return (
-    <div className="d-flex flex-column min-vh-100 bg-light chat-app">
+    <div className="d-flex flex-column flex-grow-1 bg-light chat-app">
       {/* Hero Section */}
-      <div className="container text-center py-5 flex-grow-1 mt-5">
+      <div className="container text-center py-5 mt-2">
         <h1 className="display-3 fw-bold text-light">Connect. Chat. Thrive.</h1>
         <p className="lead text-light">
           Experience seamless real-time communication with eChat.
@@ -24,7 +24,8 @@ export const LandingPage = () => {
       </div>
 
       {/* Features Section */}
-      <div className="container py-5" id="feature">
+      <div className="container py-2 mt-5">
+        <h1 className="text-light text-center p-3 mt-2 mb-3">Features</h1>
         <div className="row">
           <div className="col-md-4 text-center">
             <Image
@@ -37,6 +38,7 @@ export const LandingPage = () => {
               Chat instantly with friends, family, or colleagues.
             </p>
           </div>
+
           <div className="col-md-4 text-center">
             <Image
               src={secure}
@@ -61,6 +63,37 @@ export const LandingPage = () => {
             </p>
           </div>
         </div>
+      </div>
+
+      {/* Pricing Section */}
+      <div className="container py-5 mt-5">
+        <h1 className="text-light text-center p-3 mt-2 mb-3">Pricing</h1>
+        <p className="lead fw-bold text-light">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ex
+          molestiae repudiandae sit rerum exercitationem alias nobis inventore
+          illo ea modi odit numquam dolore expedita, obcaecati voluptatibus
+          saepe maxime quod reprehenderit maiores odio! Rerum molestiae ipsum
+          nulla magni quia similique incidunt autem magnam, illum id maiores,
+          provident, dignissimos libero quaerat quod. Est magni porro unde
+          obcaecati deleniti velit eligendi voluptates dignissimos perferendis
+          architecto ut saepe molestias fugit odit, doloremque repudiandae
+          impedit aut molestiae. Fuga molestias eaque eveniet voluptatibus
+          exercitationem minus, consequuntur minima ab iste dolores voluptas,
+          reiciendis excepturi ullam sit, harum ea alias cum nulla. Blanditiis
+        </p>
+        <p className="lead fw-bold text-light mt-4">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, error
+          explicabo ea molestiae sunt at est aut dolorem consequuntur numquam!
+          Aperiam, debitis cupiditate delectus deserunt nam ratione nesciunt,
+          facere cumque hic omnis laudantium rem harum quia! Similique optio
+          reiciendis iste, at officiis sit incidunt et provident voluptatum
+          impedit. Dolorem, molestiae nemo, quo ratione quasi dolor excepturi
+          reiciendis officia, iusto deleniti quia maxime provident ea dolores
+          ipsam odio! Voluptate ipsam id quasi atque ex, tenetur fuga ratione
+          aliquid, doloribus autem quibusdam repellendus debitis sunt facilis
+          facere non quos molestiae odit nihil fugiat. Beatae perferendis ipsum
+          commodi officia velit obcaecati libero cupiditate.
+        </p>
       </div>
     </div>
   );

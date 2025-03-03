@@ -1,7 +1,7 @@
 import create from "zustand";
 import toast from "react-hot-toast";
 import { io } from "socket.io-client";
-import { authStore } from "./authStore";
+import { useAuthStore } from "./authStore";
 import { messageStore } from "./messageStore";
 import notify from "../assets/sounds/notify.mp3";
 
@@ -15,7 +15,7 @@ export const useSocket = create((set, get) => ({
   onlineUsers: [],
 
   connectToSocketServer: () => {
-    const { user } = authStore.getState();
+    const { user } = useAuthStore.getState();
     const socket = io(SOCKET_SERVER_URL, {
       query: {
         userId: user?.id,
@@ -33,7 +33,7 @@ export const useSocket = create((set, get) => ({
     });
 
     socket.on("join-chat", (userId) => {
-      const { user } = authStore.getState();
+      const { user } = useAuthStore.getState();
       const message =
         user.id === userId ? "Success! Joined Chat" : `${userId} Joined Chat`;
 
@@ -45,7 +45,7 @@ export const useSocket = create((set, get) => ({
     });
 
     socket.on("leave-chat", (userId) => {
-      const { user } = authStore.getState();
+      const { user } = useAuthStore.getState();
       const message =
         user.id === userId ? "Disconnected from Chat" : `${userId} Left a Chat`;
 

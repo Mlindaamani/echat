@@ -108,3 +108,16 @@ export const getEmoji = () => {
   ];
   return emojies[Math.floor(Math.random() * emojies.length)];
 };
+
+export const roleBadgeColor = (role) => {
+  switch (role) {
+    case "admin":
+      return "bg-danger";
+    case "moderator":
+      return "bg-warning text-dark";
+    case "guest":
+      return "bg-secondary";
+    default:
+      return "bg-primary";
+  }
+};

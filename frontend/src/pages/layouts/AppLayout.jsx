@@ -4,12 +4,12 @@ import { Footer } from "../../components/Footer";
 
 export const AppLayout = () => {
   return (
-    <div className="d-flex flex-column">
+    <div className="d-flex flex-column min-vh-100">
       <NavigationBar />
-      <main className="flex-grow-1 vh-100">
+      <main className="flex-grow-1">
         <Outlet />
       </main>
-      <Footer />;
+      <Footer />
     </div>
   );
 };

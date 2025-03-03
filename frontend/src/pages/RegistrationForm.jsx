@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form, Image } from "react-bootstrap";
-import { authStore } from "../stores/authStore";
+import { useAuthStore } from "../stores/authStore";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
@@ -11,7 +11,7 @@ export const RegistrationForm = () => {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const navigate = useNavigate();
-  const { loading, register } = authStore();
+  const { loading, register } = useAuthStore();
 
   return (
     <div className="d-flex justify-contents-center align-items-center flex-column vh-100">

@@ -7,13 +7,13 @@ export const Brand = () => {
   return (
     <>
       <Link
-        className="navbar-brand d-flex gap-2 justify-content-start align-items-center fw-bold fs-4 text-light mb-3 mt-2"
+        className="navbar-brand d-flex gap-2 justify-content-start align-items-center fw-bold fs-4 mt-2"
         to="/"
       >
-        <Image src={sound} />
+        <Image src={sound} className="brand-icon" />
         eChat
       </Link>
-      <hr />
+      <hr className="brand-divider" />
     </>
   );
 };

@@ -1,7 +1,7 @@
 import "./chats.css";
 import { useState, useEffect, useRef } from "react";
 import { Toaster } from "react-hot-toast";
-import { authStore } from "../stores/authStore";
+import { useAuthStore } from "../stores/authStore";
 import { messageStore } from "../stores/messageStore";
 import { useSocket } from "../stores/socketStore";
 import { formatDate } from "../utils/functions";
@@ -12,7 +12,7 @@ export const RealTimeChat = () => {
   const [message, setMessage] = useState("");
   const [showOnlineOnly, setShowOnlineOnly] = useState(false);
   const { connectToSocketServer, onlineUsers, disconnect } = useSocket();
-  const { user } = authStore();
+  const { user } = useAuthStore();
 
   const {
     messages,
