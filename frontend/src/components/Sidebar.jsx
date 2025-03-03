@@ -14,7 +14,7 @@ export const Sidebar = () => (
       <SidebarLink to="/balance" icon={balance} text="Balance" />
       <SidebarLink to="/" icon={home} text="Home" />
       <SidebarLink to="/settings" icon={settings} text="Settings" />
-      <SidebarLink to="/settings" icon={person} text="Room" />
+      <SidebarLink to="/room" icon={person} text="Room" />
     </div>
   </div>
 );
