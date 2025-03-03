@@ -1,4 +1,4 @@
-.chat-container {
+/* .chat-container {
   padding: 20px;
   background-color: #ffffffe7;
   border-radius: 16px;
@@ -103,4 +103,70 @@
 
 .status-indicator.online {
   background-color: rgb(7, 105, 7);
+} */
+.dashboard-chat-container {
+  background: #fff;
+  height: calc(100vh - 80px);
+}
+
+.chat-layout {
+  background: #fff;
+}
+
+.sidebar {
+  width: 300px;
+  min-width: 300px;
+  overflow-y: auto;
+}
+
+.messages {
+  background: #f8f9fa;
+}
+
+.message-bubble {
+  max-width: 70%;
+  padding: 1rem;
+  border-radius: 1.5rem;
+}
+
+.message-sent {
+  background: #007bff;
+  color: white;
+  margin-left: auto;
+}
+
+.message-sent .message-content {
+  color: inherit;
+}
+
+.message-sent .text-secondary,
+.message-sent .text-muted {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.message-received {
+  background: #e9ecef;
+  margin-right: auto;
+}
+
+.status-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.status-indicator.online {
+  background: #28a745;
+}
+
+.status-indicator.offline {
+  background: #6c757d;
+}
+
+.input-area {
+  background: #fff;
+}
+
+.hover-bg-light:hover {
+  background: #f8f9fa;
 }

@@ -21,7 +21,7 @@ export const DashboardHeader = () => {
       <div className="d-flex align-items-center gap-2">
         <Image
           // src={user?.photo ? user.photo : avatar}
-          src={avatar}
+          src={user?.photo ? user.photo : avatar}
           roundedCircle
           width={50}
           height={50}
