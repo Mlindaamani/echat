@@ -12,7 +12,6 @@ export const Room = () => {
   const [showOnlineOnly, setShowOnlineOnly] = useState(false);
   const { connectToSocketServer, onlineUsers, disconnect } = useSocket();
   const { user } = useAuthStore();
-
   const {
     messages,
     sendNewMessage,
@@ -54,10 +53,10 @@ export const Room = () => {
   return (
     <div className="dashboard-chat-container h-100">
       <div className="chat-layout h-100 d-flex">
-        {/* Users Sidebar */}
+        {/* My-Pros */}
         <div className="sidebar bg-light border-end p-3">
           <div className="d-flex align-items-center justify-content-between mb-4">
-            <h5 className="text-dark mb-0">Chats</h5>
+            <h5 className="text-secondary mb-0">Chats</h5>
             <div className="form-check form-switch">
               <input
                 type="checkbox"
@@ -141,7 +140,7 @@ export const Room = () => {
             )}
           </div>
 
-          {/* Input Area */}
+          {/* Meesage-Input-section */}
           {selectedUser && (
             <div className="input-area p-4 border-top">
               <form onSubmit={sendMessage} className="d-flex gap-2">
