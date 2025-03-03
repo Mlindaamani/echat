@@ -1,15 +1,15 @@
 import { Routes, Route } from "react-router-dom";
 import { RegistrationForm } from "./pages/RegistrationForm";
-import { LoginForm } from "./pages/LoginForm";
-import { LandingPage } from "./pages/LandingPage";
-import { AuthRequired } from "./components/AuthRequired";
-import { Settings } from "./pages/Settings";
 import { Room } from "./pages/Room";
-import { AppLayout } from "./pages/layouts/AppLayout";
-import { AuthLayout } from "./pages/layouts/AuthLayout";
-import { DashboardLayout } from "./pages/layouts/DashboardLayout";
-import { Loading } from "./components/Loading";
+import { LoginForm } from "./pages/LoginForm";
+import { Settings } from "./pages/Settings";
+import { LandingPage } from "./pages/LandingPage";
 import { Analytics } from "./components/Analytics";
+import { Loading } from "./components/Loading";
+import { AuthRequired } from "./components/AuthRequired";
+import { AppLayout } from "./layouts/AppLayout";
+import { DashboardLayout } from "./layouts/DashboardLayout";
+import { AuthLayout } from "./layouts/AuthLayout";
 
 export const App = () => {
   return (
