@@ -6,6 +6,7 @@ import { LoginForm } from "./pages/LoginForm";
 import { LandingPage } from "./pages/LandingPage";
 import { Profile } from "./pages/Profile";
 import { AuthRequired } from "./components/AuthRequired";
+import { Settings } from "./pages/Settings";
 import { AppLayout } from "./pages/layouts/AppLayout";
 import { AuthLayout } from "./pages/layouts/AuthLayout";
 import { DashboardLayout } from "./pages/layouts/DashboardLayout";
@@ -27,7 +28,7 @@ export const App = () => {
       <Route element={<AuthRequired />}>
         <Route element={<DashboardLayout />}>
           <Route path="/analytics" element={<Analytics />} />
-          <Route path="/settings" element={<Profile />} />
+          <Route path="/settings" element={<Settings />} />
           <Route path="/balance" element={<Loading />} />
           <Route path="/room" element={<RealTimeChat />} />
         </Route>

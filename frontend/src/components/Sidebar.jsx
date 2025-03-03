@@ -13,8 +13,8 @@ export const Sidebar = () => (
       <SidebarLink to="/analytics" icon={analy} text="Analytics" />
       <SidebarLink to="/balance" icon={balance} text="Balance" />
       <SidebarLink to="/" icon={home} text="Home" />
-      <SidebarLink to="/settings" icon={settings} text="Settings" />
       <SidebarLink to="/room" icon={person} text="Room" />
+      <SidebarLink to="/settings" icon={settings} text="Settings" />
     </div>
   </div>
 );
