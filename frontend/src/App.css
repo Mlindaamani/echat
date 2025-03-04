@@ -107,13 +107,6 @@ html {
   overflow-y: auto; 
 }
 
-.active {
-  background: #4f69db;
-  color: #fff;
-  border-radius: 4px;
-
-}
-
 .brand-icon {
   width: 40px; 
   height: auto; 
@@ -165,4 +158,15 @@ html {
 
 .hover-scale:hover {
   transform: translateY(-3px);
+}
+
+.side-bar-links:hover{
+background-color: rgba(255,255,255,0.1);
+  border-radius: 4px;
+}
+
+.active {
+  background-color: rgba(255,255,255,0.2);
+  color: #fff;
+  border-radius: 4px;
 }

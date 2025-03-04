@@ -8,8 +8,9 @@ import { AuthRequired } from "./components/AuthRequired";
 import { AppLayout } from "./layouts/AppLayout";
 import { DashboardLayout } from "./layouts/DashboardLayout";
 import { AuthLayout } from "./layouts/AuthLayout";
-import { PlaceholderBanner } from "./components/PlaceholderBanner";
 import { NotFoundPage } from "./pages/NotFound";
+import { Settings } from "./pages/Settings";
+import { Earnings } from "./pages/Earnings";
 
 export const App = () => {
   return (
@@ -25,32 +26,10 @@ export const App = () => {
 
       <Route element={<AuthRequired />}>
         <Route element={<DashboardLayout />}>
-          <Route
-            path="/settings"
-            element={
-              <PlaceholderBanner
-                title="Customization Station Under Construction!"
-                description="We're building personalized settings to make eChat truly yours!"
-                emoji="⚙️"
-                ariaLabel="Settings section preview"
-                footnote="[Feature development ongoing - check back next update]"
-              />
-            }
-          />
-          <Route
-            path="/earnings"
-            element={
-              <PlaceholderBanner
-                title="Earnings Dashboard Coming Soon!"
-                description="We're crafting powerful financial insights to help you track your earnings!"
-                emoji="💸"
-                ariaLabel="Earnings section preview"
-                footnote="[Development in progress - estimated launch Q4 2025]"
-              />
-            }
-          />
           <Route path="/analytics" element={<Analytics />} />
+          <Route path="/earnings" element={<Earnings />} />
           <Route path="/room" element={<Room />} />
+          <Route path="/settings" element={<Settings />} />
         </Route>
       </Route>
 

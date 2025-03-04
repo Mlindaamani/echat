@@ -4,7 +4,7 @@ import analy from "../assets/svg/analy.svg";
 import settings from "../assets/svg/settings.svg";
 import balance from "../assets/svg/balance.svg";
 import person from "../assets/svg/person.svg";
-
+import test from "../assets/svg/test.svg";
 export const Sidebar = () => (
   <div className="p-3">
     <div className="d-flex flex-column gap-2">

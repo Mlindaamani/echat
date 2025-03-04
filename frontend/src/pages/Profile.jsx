@@ -14,7 +14,6 @@ import friends from "../assets/svg/friends.svg";
 import left from "../assets/svg/left.svg";
 import right from "../assets/svg/right.svg";
 import upload from "../assets/svg/upload.svg";
-
 export const Profile = () => {
   const MAX_FILE_SIZE = 200 * 1024;
   const [photo, setPhoto] = useState(null);
