@@ -13,21 +13,6 @@ export const Sidebar = () => (
       <SidebarLink to="/earnings" icon={balance} text="Earnings" />
       <SidebarLink to="/room" icon={person} text="Room" />
       <SidebarLink to="/settings" icon={settings} text="Settings" />
-      <SidebarLink to="/settings" icon={settings} text="Settings" />
-      <SidebarLink to="/settings" icon={settings} text="Settings" />
-      <SidebarLink to="/settings" icon={settings} text="Settings" />
-      <SidebarLink to="/settings" icon={settings} text="Settings" />
-      <SidebarLink to="/settings" icon={settings} text="Settings" />
-      <SidebarLink to="/settings" icon={settings} text="Settings" />
-      <SidebarLink to="/settings" icon={settings} text="Settings" />
-      <SidebarLink to="/settings" icon={settings} text="Settings" />
-      <SidebarLink to="/settings" icon={settings} text="Settings" />
-      <SidebarLink to="/settings" icon={settings} text="Settings" />
-      <SidebarLink to="/settings" icon={settings} text="Settings" />
-      <SidebarLink to="/settings" icon={settings} text="Settings" />
-      <SidebarLink to="/settings" icon={settings} text="Settings" />
-      <SidebarLink to="/settings" icon={settings} text="Settings" />
-      <SidebarLink to="/settings" icon={settings} text="Settings" />
     </div>
   </div>
 );
