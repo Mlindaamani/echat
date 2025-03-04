@@ -9,7 +9,7 @@ import "../chats.css";
 export const Room = () => {
   const lastMessageRef = useRef();
   const [message, setMessage] = useState("");
-  const [showOnlineOnly, setShowOnlineOnly] = useState(false); 
+  const [showOnlineOnly, setShowOnlineOnly] = useState(false);
   const { connectToSocketServer, onlineUsers, disconnect } = useSocket();
   const { user } = useAuthStore();
   const {
@@ -52,7 +52,7 @@ export const Room = () => {
   return (
     <div className="dashboard-chat-container h-100">
       <div className="chat-layout h-100 d-flex">
-        {/* My-Pros */}
+        {/* Sidebar */}
         <div className="sidebar bg-light border-end p-3">
           <div className="d-flex align-items-center justify-content-between mb-4">
             <h5 className="text-secondary mb-0">Chats</h5>
@@ -69,28 +69,43 @@ export const Room = () => {
             </div>
           </div>
 
-          <ul className="list-unstyled">
-            {filteredUsers.map((user) => (
-              <li
-                key={user._id}
-                onClick={() => handleUserClick(user)}
-                className={`p-3 mb-2 cursor-pointer rounded ${
-                  selectedUser?._id === user._id
-                    ? "bg-primary text-white"
-                    : "hover-bg-light"
-                }`}
-              >
-                <div className="d-flex align-items-center">
-                  <span
-                    className={`status-indicator me-3 ${
-                      onlineUsers.includes(user._id) ? "online" : "offline"
-                    }`}
-                  ></span>
-                  <span className="fw-medium">{user.username}</span>
+          <div className="user-list">
+            {filteredUsers.map((user) => {
+              const usernameInitial = user.username.charAt(0).toUpperCase();
+              const isOnline = onlineUsers.includes(user._id);
+
+              return (
+                <div
+                  key={user._id}
+                  onClick={() => handleUserClick(user)}
+                  className={`user-item d-flex align-items-center p-2 mb-2 rounded ${
+                    selectedUser?._id === user._id ? "bg-warning bg-opacity-90 text-light" : ""
+                  }`}
+                >
+                  <div className="avatar-container position-relative me-3">
+                    <div className="avatar bg-secondary text-white rounded-circle d-flex align-items-center justify-content-center">
+                      {usernameInitial}
+                    </div>
+                    <span
+                      className={`status-indicator position-absolute bottom-0 end-0 translate-middle ${
+                        isOnline ? "online" : "offline"
+                      }`}
+                    ></span>
+                  </div>
+                  <div className="d-flex flex-column">
+                    <span className="username fw-medium">{user.username}</span>
+                    <small
+                      className={`text-xs ${
+                        isOnline ? "text-success" : "text-muted"
+                      }`}
+                    >
+                      {isOnline ? "Online" : "Offline"}
+                    </small>
+                  </div>
                 </div>
-              </li>
-            ))}
-          </ul>
+              );
+            })}
+          </div>
         </div>
 
         {/* Chat Area */}
@@ -135,7 +150,7 @@ export const Room = () => {
             )}
           </div>
 
-          {/* Meesage-Input-section */}
+          {/* Message Input */}
           {selectedUser && (
             <div className="input-area p-4 border-top">
               <form onSubmit={sendMessage} className="d-flex gap-2">
