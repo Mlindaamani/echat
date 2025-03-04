@@ -9,6 +9,7 @@ import { AppLayout } from "./layouts/AppLayout";
 import { DashboardLayout } from "./layouts/DashboardLayout";
 import { AuthLayout } from "./layouts/AuthLayout";
 import { PlaceholderBanner } from "./components/PlaceholderBanner";
+import { NotFoundPage } from "./pages/NotFound";
 
 export const App = () => {
   return (
@@ -53,7 +54,7 @@ export const App = () => {
         </Route>
       </Route>
 
-      <Route path="*" element={<h1>Page not found</h1>} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 };

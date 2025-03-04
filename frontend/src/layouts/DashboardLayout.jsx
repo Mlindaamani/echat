@@ -6,7 +6,7 @@ export const DashboardLayout = () => {
   return (
     <div className="container-fluid bg-white">
       <div className="row">
-        <div className="col-md-3 col-lg-2 bg-black bg-opacity-75 text-white vh-100 p-0">
+        <div className="col-md-3 col-lg-2 bg-black text-white vh-100 p-0 overflow-auto">
           <Sidebar />
         </div>
         <div className="col-md-9 col-lg-10 p-0 bg-white">
