@@ -23,6 +23,7 @@ export const DashboardHeader = () => {
           // src={user?.photo ? user.photo : avatar}
           src={user?.photo ? user.photo : avatar}
           roundedCircle
+          fluid
           width={50}
           height={50}
           className="me-2"
