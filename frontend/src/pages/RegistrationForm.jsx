@@ -20,7 +20,7 @@ export const RegistrationForm = () => {
           e.preventDefault();
           register(username, email, password, navigate);
         }}
-        className="mt-5 chat-app p-5 rounded-4 col-sm-9 col-md-11 col-lg-6"
+        className="mt-5 p-5 rounded-4 col-sm-9 col-md-11 col-lg-6 chat-app-color"
       >
         <div className="container d-flex justify-content-center align-items-center gap-4 mb-5">
           <Image src={secure1} />

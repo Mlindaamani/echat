@@ -14,6 +14,9 @@ html {
 .chat-app {
   background: linear-gradient(135deg, #4f69db, #5e3487);
 }
+.chat-app-color {
+  background: linear-gradient(135deg, #4f69db, #5e3487);
+}
 
 .profile-sidebar {
   width: 300px;

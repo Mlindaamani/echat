@@ -10,7 +10,7 @@ export const Sidebar = () => (
     <div className="d-flex flex-column gap-2">
       <Brand />
       <SidebarLink to="/analytics" icon={analy} text="Analytics" />
-      <SidebarLink to="/balance" icon={balance} text="Manage Earnings" />
+      <SidebarLink to="/balance" icon={balance} text="Earnings" />
       <SidebarLink to="/room" icon={person} text="Room" />
       <SidebarLink to="/settings" icon={settings} text="Settings" />
     </div>

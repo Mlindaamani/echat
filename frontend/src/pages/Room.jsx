@@ -9,7 +9,7 @@ import "../chats.css";
 export const Room = () => {
   const lastMessageRef = useRef();
   const [message, setMessage] = useState("");
-  const [showOnlineOnly, setShowOnlineOnly] = useState(false);
+  const [showOnlineOnly, setShowOnlineOnly] = useState(false); 
   const { connectToSocketServer, onlineUsers, disconnect } = useSocket();
   const { user } = useAuthStore();
   const {
@@ -41,9 +41,8 @@ export const Room = () => {
   }, [getChatUsers]);
 
   useEffect(() => {
-    if (lastMessageRef.current && messages) {
+    if (lastMessageRef.current && messages)
       lastMessageRef.current?.scrollIntoView({ behavior: "smooth" });
-    }
   }, [messages]);
 
   const filteredUsers = showOnlineOnly
@@ -112,28 +111,24 @@ export const Room = () => {
                 </div>
               </div>
             ) : (
-              messages.map((msg) => (
+              messages.map(({ _id: id, senderId, message, created_at }) => (
                 <div
-                  key={msg._id}
+                  key={id}
                   ref={lastMessageRef}
                   className={`message-bubble ${
-                    msg.senderId === user?.id
-                      ? "message-sent"
-                      : "message-received"
+                    senderId === user?.id ? "message-sent" : "message-received"
                   } mb-3`}
                 >
                   <div className="message-content">
                     <div className="d-flex align-items-center mb-1">
                       <small className="fw-bold text-secondary">
-                        {msg.senderId === user?.id
-                          ? "You"
-                          : selectedUser?.username}
+                        {senderId === user?.id ? "You" : selectedUser?.username}
                       </small>
                       <small className="text-muted ms-2">
-                        {formatDate(msg.created_at)}
+                        {formatDate(created_at)}
                       </small>
                     </div>
-                    <p className="mb-0 text-dark">{msg.message}</p>
+                    <p className="mb-0 text-dark">{message}</p>
                   </div>
                 </div>
               ))
