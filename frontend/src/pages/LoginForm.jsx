@@ -25,7 +25,7 @@ export const LoginForm = () => {
           <Image
             src={chats}
             fluid
-            className="mb-3 bg-warning rounded-2"
+            className="mb-3 rounded-2"
             style={{ maxWidth: "80px" }}
           />
           <h2 className="h3 fw-bold text-dark">LOGIN NOW</h2>
