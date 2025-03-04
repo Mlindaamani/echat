@@ -44,7 +44,7 @@ export const App = () => {
                 description="We're crafting powerful financial insights to help you track your earnings!"
                 emoji="💸"
                 ariaLabel="Earnings section preview"
-                footnote="[Development in progress - estimated launch Q4 2024]"
+                footnote="[Development in progress - estimated launch Q4 2025]"
               />
             }
           />
