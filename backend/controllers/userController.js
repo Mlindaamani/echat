@@ -24,6 +24,7 @@ const getProfile = async (req, res) => {
       "-password -__v -updated_at"
     );
     if (!profile) return res.status(404).json({ message: "Profile not found" });
+
     return res.status(200).json(profile);
   } catch (error) {
     console.log(error.message);
@@ -64,7 +65,7 @@ const uploadProfile = async (req, res) => {
     console.error(error);
     res.status(500).json({
       success: false,
-      message: "Failed to update profile...",
+      message: "Failed to update profile",
     });
   }
 };
