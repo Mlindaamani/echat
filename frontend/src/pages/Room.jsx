@@ -12,6 +12,7 @@ export const Room = () => {
   const [showOnlineOnly, setShowOnlineOnly] = useState(false);
   const { connectToSocketServer, onlineUsers, disconnect } = useSocket();
   const { user } = useAuthStore();
+  console.log(user);
   const {
     messages,
     sendNewMessage,
@@ -79,7 +80,9 @@ export const Room = () => {
                   key={user._id}
                   onClick={() => handleUserClick(user)}
                   className={`user-item d-flex align-items-center p-2 mb-2 rounded ${
-                    selectedUser?._id === user._id ? "bg-warning bg-opacity-90 text-light" : ""
+                    selectedUser?._id === user._id
+                      ? "bg-info bg-opacity-75 text-light fw-bold"
+                      : ""
                   }`}
                 >
                   <div className="avatar-container position-relative me-3">

@@ -18,50 +18,7 @@ html {
   background: linear-gradient(135deg, #4f69db, #5e3487);
 }
 
-.profile-sidebar {
-  width: 300px;
-  background-color: #f8f9fa;
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  transition: width 0.5s;
-}
 
-.profile-sidebar.closed {
-  width: 100px;
-}
-
-.profile-sidebar nav ul {
-  list-style: none;
-  padding: 2px;
-}
-
-.profile-sidebar nav ul li {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-}
-
-.profile-sidebar nav ul li a {
-  margin-left: 10px;
-  text-decoration: none;
-  color: #333;
-}
-
-.sidebar-toggle {
-  position: sticky;
-  top: 30px;
-  right: 0;
-  transform: translateY(-50%);
-  background: #333;
-  color: white;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.sidebar-toggle:hover {
-  background: #555;
-}
 
 @keyframes shake {
   0% {
@@ -102,6 +59,7 @@ html {
   background: #f8f9fa; 
   padding: 1rem; /
 }
+
 .content-c {
   height: 100vh; 
   overflow-y: auto; 
@@ -169,4 +127,5 @@ background-color: rgba(255,255,255,0.1);
   background-color: rgba(255,255,255,0.2);
   color: #fff;
   border-radius: 4px;
+  font-weight: bold;
 }
