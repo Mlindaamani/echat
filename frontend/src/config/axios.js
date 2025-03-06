@@ -9,7 +9,6 @@ import {
 const { VITE_BACKEND_URL_DEV, VITE_BACKEND_URL_PROD } =
   import.meta.env;
 
-// Create AxiosnInstance.
 export const axiosInstance = axios.create({
   baseURL:
     import.meta.env.MODE === "development"
@@ -17,7 +16,6 @@ export const axiosInstance = axios.create({
       : VITE_BACKEND_URL_PROD,
 });
 
-// Request interceptor:: Attach access token to authorization headers.
 axiosInstance.interceptors.request.use(
   (config) => {
     const token = getAccessToken();
@@ -30,12 +28,10 @@ axiosInstance.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-// Response Interceptor:: Handle token refresh
 axiosInstance.interceptors.response.use(
   (response) => response,
 
   async (error) => {
-    //Status code greater then 2xx will trigger these code
     const previousRequest = error.config;
     if (error.response.status === 401 && !previousRequest.sent) {
       previousRequest.sent = true;
@@ -49,12 +45,9 @@ axiosInstance.interceptors.response.use(
         ).data;
         storeTokens(accessToken, refreshToken);
         previousRequest.headers.Authorization = `JWT ${accessToken}`;
-        // Retry previous request with new access token
         return axiosInstance(previousRequest);
       } catch (refreshError) {
-        // Remove tokens
         removeTokens();
-        // Redirect user to login page
         window.location.href = "/login";
       }
     }
