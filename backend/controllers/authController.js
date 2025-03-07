@@ -58,7 +58,9 @@ const login = async (req, res) => {
     const refreshToken = generateRefreshToken(payload);
 
     res.json({
-      user: payload,
+      id: user._id,
+      username: user.username,
+      photo: user.photo,
       accessToken,
       refreshToken,
     });

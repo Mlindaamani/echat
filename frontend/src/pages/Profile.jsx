@@ -19,7 +19,7 @@ export const Profile = () => {
 
   const handleUploadProfile = () => {
     if (!photo) {
-      toast.error("Please select a file first!");
+      toast.error("Please select a file first!")
       return;
     }
     const formData = new FormData();

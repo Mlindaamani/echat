@@ -59,10 +59,6 @@ export const useSocket = create((set, get) => ({
     socket.on("online-users", (users) => {
       set({ onlineUsers: users });
     });
-
-    socket.on("typing", (typingUser) => {
-      set({ typing: true, typingUser: typingUser });
-    });
   },
 
   unsubscribeFromMessages: () => {
@@ -73,7 +69,7 @@ export const useSocket = create((set, get) => ({
   disconnect: () => {
     const { socket, unsubscribeFromMessages } = get();
 
-    if (socket.connected) {
+    if (socket?.connected) {
       socket.disconnect();
       unsubscribeFromMessages();
     }

@@ -14,7 +14,7 @@ const { connectToSocketServer } = useSocket.getState();
 
 export const useAuthStore = create(
   persist(
-    (set) => ({
+    (set, get) => ({
       user: null,
       loading: false,
       isAuthenticated: !!getAccessToken(),
@@ -50,10 +50,9 @@ export const useAuthStore = create(
 
       login: async (email, password, navigate) => {
         if (!email || !password) return toast.error("All field are required!");
-
         set({ loading: true });
         try {
-          const { accessToken, refreshToken, user } = (
+          const { id, username, photo, accessToken, refreshToken } = (
             await axiosInstance.post("/auth/login/", {
               email,
               password,
@@ -61,10 +60,15 @@ export const useAuthStore = create(
           ).data;
 
           storeTokens(accessToken, refreshToken);
-          set({ isAuthenticated: true, loading: false, user: user });
+
+          set({
+            isAuthenticated: true,
+            loading: false,
+            user: { id, username, photo },
+          });
 
           toast.success("You have successfully logged in.", {
-            duration: 2000,
+            duration: 4000,
             position: "top-right",
             id: "login",
           });

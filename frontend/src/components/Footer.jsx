@@ -1,4 +1,5 @@
 import React from "react";
+import { Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export const Footer = () => {
@@ -61,9 +62,7 @@ export const Footer = () => {
                 to="#"
                 className="btn btn-link text-light p-2 hover-scale"
                 aria-label="Twitter"
-              >
-                <i className="fab fa-twitter fa-lg"></i>
-              </Link>
+              ></Link>
               <Link
                 to="#"
                 className="btn btn-link text-light p-2 hover-scale"
