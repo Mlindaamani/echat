@@ -25,10 +25,3 @@ export const DashboardLayout = () => {
   );
 };
 
-//#2D4263
-//#2F2F2F
-//#6A0572--magenta
-//0047AB
-//2D4263....dark blue
-//1E3A2F....dark green
-//3A2462

@@ -7,7 +7,6 @@ export const formatDate = (isoDate, options = {}) => {
     month: "short",
     hour24: true,
   };
-  // Merge default options with user-provided options
   const finalOptions = { ...defaultOptions, ...options };
 
   return date.toLocaleString("en-US", finalOptions);
@@ -20,14 +19,12 @@ export const calculateMemberSince = (createdAt) => {
   // Calculate the difference in milliseconds
   const diffInMilliseconds = now - createdDate;
 
-  // Convert the difference to seconds, minutes, hours, days, and years
   const seconds = Math.floor(diffInMilliseconds / 1000);
   const minutes = Math.floor(seconds / 60);
   const hours = Math.floor(minutes / 60);
   const days = Math.floor(hours / 24);
   const years = Math.floor(days / 365);
 
-  // Determine the appropriate time unit to return
   if (years > 0) {
     return `${years} year${years > 1 ? "s" : ""} ago`;
   } else if (days > 0) {
@@ -39,74 +36,6 @@ export const calculateMemberSince = (createdAt) => {
   } else {
     return `${seconds} second${seconds > 1 ? "s" : ""} ago`;
   }
-};
-
-export const getBackendErrorMessage = (error) => error.response?.data?.message;
-
-export const getEmoji = () => {
-  const emojies = [
-    "😀",
-    "😂",
-    "😍",
-    "😎",
-    "😢",
-    "😡",
-    "🥳",
-    "😱",
-    "😴",
-    "😇",
-    "🤔",
-    "😜",
-    "😋",
-    "😏",
-    "😬",
-    "😳",
-    "😵",
-    "🤯",
-    "🥺",
-    "😺",
-    "🐶",
-    "🐱",
-    "🐻",
-    "🐼",
-    "🐨",
-    "🦁",
-    "🐯",
-    "🦊",
-    "🐸",
-    "🐵",
-    "🐔",
-    "🐧",
-    "🐦",
-    "🐤",
-    "🐣",
-    "🐘",
-    "🦒",
-    "🐬",
-    "🐳",
-    "🐋",
-    "🦈",
-    "🐊",
-    "🦙",
-    "🐴",
-    "🦄",
-    "🌈",
-    "🌻",
-    "🌼",
-    "🎛️",
-    "🌺",
-    "🍎",
-    "🍕",
-    "🍔",
-    "🍣",
-    "🍦",
-    "🎉",
-    "🎈",
-    "🎊",
-    "🤖",
-    "🎵",
-  ];
-  return emojies[Math.floor(Math.random() * emojies.length)];
 };
 
 export const roleBadgeColor = (role) => {
@@ -121,3 +50,13 @@ export const roleBadgeColor = (role) => {
       return "bg-primary";
   }
 };
+
+export const getBackendErrorMessage = (error) => error.response?.data?.message;
+
+//#2D4263
+//#2F2F2F
+//#6A0572--magenta
+//0047AB
+//2D4263....dark blue
+//1E3A2F....dark green
+//3A2462

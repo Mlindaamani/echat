@@ -1,6 +1,7 @@
 import React from "react";
 import { users } from "../utils/mock";
 import { roleBadgeColor } from "../utils/functions";
+import { ActionMenu } from "./ActionMenu";
 
 export const Analytics = () => {
   return (
@@ -48,6 +49,7 @@ export const Analytics = () => {
                 <th className="text-center text-secondary">Messages</th>
                 <th className="text-center text-secondary">Active</th>
                 <th className="text-center text-secondary">Sign Up Date</th>
+                <th className="text-center text-secondary">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -92,6 +94,9 @@ export const Analytics = () => {
                     {user.isActive ? "Yes" : "No"}
                   </td>
                   <td>{new Date(user.signUpDate).toLocaleDateString()}</td>
+                  <td>
+                    <ActionMenu />
+                  </td>
                 </tr>
               ))}
             </tbody>

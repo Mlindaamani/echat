@@ -6,44 +6,7 @@ import { calculateMemberSince } from "../utils/functions";
 import { useProfile } from "../stores/profileStore";
 import account from "../assets/svg/account.svg";
 import upload from "../assets/svg/upload.svg";
-import more from "../assets/svg/more.svg";
 import edit from "../assets/svg/edit.svg";
-
-const DropDownMenu = () => {
-  return (
-    <div className="dropdown p-1">
-      <Image
-        src={more}
-        className="dropdown-toggle bg-secondary rounded-circle p-1"
-        aria-expanded="false"
-        data-bs-toggle="dropdown"
-        style={{ cursor: "pointer" }}
-      />
-      <ul className="dropdown-menu rounded-2">
-        <li>
-          <button className="dropdown-item" type="button">
-            Logout
-          </button>
-        </li>
-        <li>
-          <button className="dropdown-item" type="button">
-            Update Profile
-          </button>
-        </li>
-        <li>
-          <button className="dropdown-item" type="button">
-            Logout
-          </button>
-        </li>
-        <li>
-          <button className="dropdown-item" type="button">
-            Delete Profile
-          </button>
-        </li>
-      </ul>
-    </div>
-  );
-};
 
 export const Profile = () => {
   const MAX_FILE_SIZE = 200 * 1024;
@@ -127,7 +90,6 @@ export const Profile = () => {
                 </button>
               </div>
             </div>
-            <DropDownMenu />
           </div>
         </div>
         {/* User information */}

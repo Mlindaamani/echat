@@ -12,7 +12,7 @@ export const Room = () => {
   const [showOnlineOnly, setShowOnlineOnly] = useState(false);
   const { connectToSocketServer, onlineUsers, disconnect } = useSocket();
   const { user } = useAuthStore();
-  console.log(user);
+
   const {
     messages,
     sendNewMessage,
