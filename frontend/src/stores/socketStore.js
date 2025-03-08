@@ -4,9 +4,7 @@ import { io } from "socket.io-client";
 import { useAuthStore } from "./authStore";
 import { messageStore } from "./messageStore";
 import notify from "../assets/sounds/notify.mp3";
-
 const { VITE_SOCKET_DEV, VITE_SOCKET_PROD } = import.meta.env;
-
 const SOCKET_SERVER_URL =
   import.meta.env.MODE === "development" ? VITE_SOCKET_DEV : VITE_SOCKET_PROD;
 
@@ -21,6 +19,7 @@ export const useSocket = create((set, get) => ({
         userId: user?.id,
       },
     });
+
     socket.connect();
 
     set({ socket: socket });
@@ -64,6 +63,9 @@ export const useSocket = create((set, get) => ({
   unsubscribeFromMessages: () => {
     const { socket } = get();
     socket.off("new-messages");
+    socket.off("join-chat");
+    socket.off("leave-chat");
+    socket.off("online-users");
   },
 
   disconnect: () => {

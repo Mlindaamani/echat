@@ -2,6 +2,7 @@ import toast from "react-hot-toast";
 import create from "zustand";
 import { persist } from "zustand/middleware";
 import { axiosInstance } from "../config/axios";
+import { getBackendErrorMessage } from "../utils/functions";
 import { useSocket } from "./socketStore";
 import {
   removeTokens,
@@ -9,12 +10,9 @@ import {
   getAccessToken,
 } from "../utils/localStorage";
 
-import { getBackendErrorMessage } from "../utils/functions";
-const { connectToSocketServer } = useSocket.getState();
-
 export const useAuthStore = create(
   persist(
-    (set, get) => ({
+    (set) => ({
       user: null,
       loading: false,
       isAuthenticated: !!getAccessToken(),
@@ -72,8 +70,6 @@ export const useAuthStore = create(
             position: "top-right",
             id: "login",
           });
-
-          connectToSocketServer();
           navigate("/");
         } catch (error) {
           set({ loading: false });

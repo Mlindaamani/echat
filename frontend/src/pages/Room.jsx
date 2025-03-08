@@ -12,7 +12,6 @@ export const Room = () => {
   const [showOnlineOnly, setShowOnlineOnly] = useState(false);
   const { connectToSocketServer, onlineUsers, disconnect } = useSocket();
   const { user } = useAuthStore();
-
   const {
     messages,
     sendNewMessage,
@@ -22,6 +21,15 @@ export const Room = () => {
     selectedUser,
     setSelectedUser,
   } = messageStore();
+
+  const filteredUsers = showOnlineOnly
+    ? users.filter((user) => onlineUsers.includes(user._id))
+    : users;
+
+  useEffect(() => {
+    if (lastMessageRef.current && messages)
+      lastMessageRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
 
   const sendMessage = (e) => {
     e.preventDefault();
@@ -37,18 +45,8 @@ export const Room = () => {
   useEffect(() => {
     getChatUsers();
     connectToSocketServer();
-
     return () => disconnect();
   }, [getChatUsers]);
-
-  useEffect(() => {
-    if (lastMessageRef.current && messages)
-      lastMessageRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
-
-  const filteredUsers = showOnlineOnly
-    ? users.filter((user) => onlineUsers.includes(user._id))
-    : users;
 
   return (
     <div className="dashboard-chat-container h-100">
