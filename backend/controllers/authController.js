@@ -57,7 +57,7 @@ const login = async (req, res) => {
     const accessToken = generateAccessToken(payload);
     const refreshToken = generateRefreshToken(payload);
 
-    res.json({
+    res.status(200).json({
       id: user._id,
       username: user.username,
       photo: user.photo,
@@ -97,13 +97,4 @@ const refreshToken = (req, res) => {
   });
 };
 
-const checkAuth = (req, res) => {
-  try {
-    return res.status(200).json({ user: req.user });
-  } catch (error) {
-    console.error(error);
-    res.status(500).send("Server Error");
-  }
-};
-
-module.exports = { register, login, refreshToken, checkAuth };
+module.exports = { register, login, refreshToken };

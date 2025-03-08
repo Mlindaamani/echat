@@ -39,7 +39,7 @@ export const useSocket = create((set, get) => ({
       toast.success(message, {
         id: "join-chat",
         duration: 5000,
-        position: "bottom-right",
+        position: "bottom-left",
       });
     });
 
@@ -49,9 +49,9 @@ export const useSocket = create((set, get) => ({
         user.id === userId ? "Disconnected from Chat" : `${userId} Left a Chat`;
 
       toast.success(message, {
-        id: "join-chat",
+        id: "leave-chat",
         duration: 5000,
-        position: "bottom-right",
+        position: "bottom-left",
       });
     });
 
@@ -60,7 +60,7 @@ export const useSocket = create((set, get) => ({
     });
   },
 
-  unsubscribeFromMessages: () => {
+  unsubscribeFromSocketEvents: () => {
     const { socket } = get();
     socket.off("new-messages");
     socket.off("join-chat");
@@ -69,11 +69,11 @@ export const useSocket = create((set, get) => ({
   },
 
   disconnect: () => {
-    const { socket, unsubscribeFromMessages } = get();
+    const { socket, unsubscribeFromSocketEvents } = get();
 
     if (socket?.connected) {
       socket.disconnect();
-      unsubscribeFromMessages();
+      unsubscribeFromSocketEvents();
     }
   },
 }));
