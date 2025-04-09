@@ -4,7 +4,7 @@ export const AuthLayout = () => {
   return (
     <div className="container-fluid d-flex flex-column min-vh-100">
       <div className="row justify-content-center align-items-center flex-grow-1">
-        <div className="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div className="col-12 col-md-6 col-lg-4 col-xl-4">
           <div className="d-flex justify-content-center gap-3 mb-4">
             <Link
               to="/login"

@@ -70,7 +70,6 @@ export const useSocket = create((set, get) => ({
 
   disconnect: () => {
     const { socket, unsubscribeFromSocketEvents } = get();
-
     if (socket?.connected) {
       socket.disconnect();
       unsubscribeFromSocketEvents();

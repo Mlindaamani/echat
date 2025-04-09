@@ -19,7 +19,7 @@ export const Profile = () => {
 
   const handleUploadProfile = () => {
     if (!photo) {
-      toast.error("Please select a file first!")
+      toast.error("Please select a file first!");
       return;
     }
     const formData = new FormData();
@@ -85,6 +85,7 @@ export const Profile = () => {
                 <button
                   className="btn btn-secondary mt-2 w-100"
                   onClick={handleUploadProfile}
+                  disabled={uploading}
                 >
                   {uploading ? "Uploading..." : "Upload Photo"}
                 </button>
@@ -139,7 +140,7 @@ export const Profile = () => {
                   value={calculateMemberSince(profile?.created_at)}
                   className="card-text form-control"
                   readOnly
-                  disabled={uploading}
+                  disabled
                 />
               </div>
             </div>

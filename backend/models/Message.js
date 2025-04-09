@@ -1,5 +1,4 @@
-const mongoose = require("mongoose");
-const { Schema, model } = mongoose;
+const { Schema, model } = require("mongoose");
 
 const messageSchema = Schema(
   {
@@ -18,6 +17,9 @@ const messageSchema = Schema(
     message: {
       type: String,
       required: [true, "Message is required"],
+      min: [1, "Message is too short"],
+      max: [1000, "Message is too long"],
+      required: true,
     },
 
     isRead: {

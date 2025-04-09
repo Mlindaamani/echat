@@ -12,7 +12,7 @@ import { AuthLayout } from "./layouts/AuthLayout";
 import { Settings } from "./pages/Settings";
 import { Earnings } from "./pages/Earnings";
 import { Profile } from "./pages/Profile";
-
+import { useAuthStore } from "./stores/authStore";
 
 export const App = () => {
   return (
