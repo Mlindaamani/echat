@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+
 const corsConfiguration = {
   cors: {
     origin: "http://localhost:5173",
@@ -31,7 +32,7 @@ const verifyMongoDbId = (videoId) => {
   return mongoose.Types.ObjectId.isValid(videoId);
 };
 
-const startServer = () => {
+const startServer =  () => {
   console.log(`✔️  Success! Server is running on port: ${process.env.PORT}`);
 };
 
